@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="5">
+            <objects>
+                <viewController id="2" customClass="MapViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W8g-b5-cDs">
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="Z1G-i3-WxS"/>
+                                </connections>
+                            </mapView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LfE-ti-fNR">
+                                <items>
+                                    <navigationItem title="Spot the ISS" id="j1a-vs-mXu">
+                                        <barButtonItem key="leftBarButtonItem" title="Tweet" id="tbb-Yi-6ce">
+                                            <connections>
+                                                <action selector="tweetButton:" destination="2" id="MZs-5r-uwL"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="About" id="JpS-3m-PSG">
+                                            <connections>
+                                                <action selector="aboutButton:" destination="2" id="dnL-ex-MD0"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="2" id="xyT-7s-QrK"/>
+                                </connections>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="W8g-b5-cDs" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="2rw-x8-RCn"/>
+                            <constraint firstItem="W8g-b5-cDs" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="Lm7-2D-CcN"/>
+                            <constraint firstItem="W8g-b5-cDs" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="fg8-6u-qE8"/>
+                            <constraint firstItem="LfE-ti-fNR" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="fyH-hy-aAl"/>
+                            <constraint firstItem="LfE-ti-fNR" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="jXh-b1-psJ"/>
+                            <constraint firstItem="LfE-ti-fNR" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="sVg-ch-f5A"/>
+                            <constraint firstItem="LfE-ti-fNR" firstAttribute="bottom" secondItem="W8g-b5-cDs" secondAttribute="top" type="default" id="twI-il-fau"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="issNavigationBar" destination="LfE-ti-fNR" id="hap-DD-K5U"/>
+                        <outlet property="map" destination="W8g-b5-cDs" id="aBC-XM-HNa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
