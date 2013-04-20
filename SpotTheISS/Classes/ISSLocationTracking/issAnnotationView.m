@@ -31,7 +31,7 @@
 
 - (id)initWithAnnotation:(id <MKAnnotation>)annotation reuseIdentifier:(NSString *)reuseIdentifier
 {
-  NSLog(@"initWithAnnotation");
+  //NSLog(@"issAnnotationView - initWithAnnotation");
   
   self = [super initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
   
@@ -51,6 +51,9 @@
     
     self.contentMode = UIViewContentModeScaleAspectFill;
     self.centerOffset = CGPointMake(1, 1);
+    
+    self.canShowCallout = YES;
+    //self.canShowCallout = NO;
     
     // The opaque property is YES by default. Setting it to
     // NO allows map content to show through any unrendered

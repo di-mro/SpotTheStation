@@ -11,7 +11,10 @@
 @implementation MyAnnotation
 
 @synthesize coordinate;
+@synthesize title;
+@synthesize subtitle;
 
+/*
 - (NSString *)subtitle
 {
 	return nil;
@@ -21,6 +24,7 @@
 {
 	return nil;
 }
+ */
 
 
 -(id)initWithCoordinate:(CLLocationCoordinate2D) c

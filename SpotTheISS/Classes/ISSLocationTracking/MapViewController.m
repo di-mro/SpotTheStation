@@ -10,13 +10,14 @@
 
 #import "MyAnnotation.h"
 #import "issAnnotationView.h"
+#import "issFacts.h"
 
 #import <Social/Social.h>
 
-#import "issFacts.h"
-
-
 #define METERS_PER_MILE 1609.344
+#define MINIMUM_ZOOM_ARC 0.014 //approximately 1 miles (1 degree of arc ~= 69 miles)
+#define ANNOTATION_REGION_PAD_FACTOR 1.15
+#define MAX_DEGREES_ARC 360
 
 @interface MapViewController ()
 
@@ -27,6 +28,16 @@
 @synthesize map;
 @synthesize issNavigationBar;
 @synthesize location;
+
+@synthesize issLocation;
+@synthesize region;
+@synthesize span;
+
+@synthesize annotation;
+@synthesize geoLocation;
+@synthesize locatedAt;
+
+@synthesize httpResponseCode;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -46,19 +57,18 @@
   map.delegate = self;
   map.mapType = MKMapTypeStandard;
   [self.view addSubview:map];
+  NSLog(@"Map initialized");
   
   //Display fact
   issFacts *facts = [[issFacts alloc] init];
   [facts displayFact];
   
-  //for(;;)
-  //while(true)
-  //{
-    [self getCoordinates];
-
-    //[self performSelectorOnMainThread:@selector(getCoordinates) withObject:nil waitUntilDone:FALSE];
-    //[self performSelector:@selector(getCoordinates) withObject:self afterDelay:3.0];
-  //}
+  [self getISSGeoLocation];
+  //[self getCoordinates];
+  //[self plotISSCoordinates];
+  
+  NSThread *animationThread = [[NSThread alloc] initWithTarget:self selector:@selector(animate) object:nil];
+  [animationThread start];
   
   //[mapView setMapType:MKMapTypeStandard];
   //[mapView setMapType:MKMapTypeHybrid];
@@ -75,20 +85,12 @@
 }
 
 
-#pragma mark - Get coordinates from open-notify.org
+#pragma mark - Get coordinates (latitude, longitude) from open-notify.org
 - (void) getCoordinates
 {
-  //Variable declarations
-  CLLocationCoordinate2D issLocation;
-  MKCoordinateRegion region;
-  MKCoordinateSpan span;
-  
-  //Set latitude and longitude delta for the map
-  span.latitudeDelta = 100.0f; //0.2f
-  span.longitudeDelta = 100.0f; //0.2f
-  
   //Conect to open-notify
   NSString *URL = @"http://api.open-notify.org/iss-now/v1/";
+  //NSString *URL = @"";
   NSMutableURLRequest *getRequest = [NSMutableURLRequest
                                      requestWithURL:[NSURL URLWithString:URL]];
   
@@ -125,8 +127,6 @@
     //Show sample default location if offline - Manila
     issLocation.latitude  = 14.5995124;
     issLocation.longitude = 120.9842195;
-    //issLocation.latitude  = 39.281516;
-    //issLocation.longitude = -76.580806;
   }
   else
   {
@@ -155,23 +155,98 @@
     issLocation.longitude = longitude.doubleValue;
   }
   
+  /*
   region = MKCoordinateRegionMake(issLocation, span);
   [map setRegion:region animated:YES];
   
   //Annotate coordinate location in map
-  MyAnnotation *annotation = [[MyAnnotation alloc] initWithCoordinate:issLocation];
-  [map addAnnotation:annotation];
+  annotation = [[MyAnnotation alloc] initWithCoordinate:issLocation];
   
+  //Get geographical location of ISS
+  NSLog(@"plotISSCoordinates - geoLocation: %@", geoLocation);
+  annotation.title = @"ISS Location";
+  annotation.subtitle = geoLocation;
+  [map addAnnotation:annotation];
+  */
 }
 
 
+#pragma mark - Plot the coordinates in Map to show current ISS position
+-(void) plotISSCoordinates
+{
+  //Set latitude and longitude delta for the map
+  span.latitudeDelta = 80.0f; //0.2f
+  span.longitudeDelta = 80.0f; //0.2f
+  
+  region = MKCoordinateRegionMake(issLocation, span);
+  [map setRegion:region animated:YES];
+  
+  //Annotate coordinate location in map
+  annotation = [[MyAnnotation alloc] initWithCoordinate:issLocation];
+  
+  //Get geographical location of ISS
+  NSLog(@"plotISSCoordinates - geoLocation: %@", geoLocation);
+  annotation.title = @"ISS";
+  annotation.subtitle = geoLocation;
+  [map addAnnotation:annotation];
+}
+
+
+#pragma mark - Get geographical location of ISS based on ISS latitude and longitude
+-(NSString *) getISSGeoLocation
+{
+  CLGeocoder *geocoder = [[CLGeocoder alloc]init];
+  CLLocation *loc = [[CLLocation alloc] initWithLatitude:issLocation.latitude longitude:issLocation.longitude];
+  geoLocation = [[NSString alloc] init];
+  
+  [geocoder reverseGeocodeLocation: loc completionHandler:
+   ^(NSArray *placemarks, NSError *error)
+   {
+     CLPlacemark *placemark = [placemarks objectAtIndex:0];
+     
+     //String to hold address
+     locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
+     NSLog(@"addressDictionary %@", placemark.addressDictionary);
+     //NSString *locatedAt = [placemark.addressDictionary valueForKey:@"Name"];
+     //NSString *countryName = [placemark.addressDictionary valueForKey:@"Country"];
+     
+     NSString *tempGeoLocation = [[NSString alloc] initWithFormat:@"I am currently overhead %@", locatedAt];
+     
+     //Print the location to console
+     geoLocation = tempGeoLocation;
+     NSLog(@"getISSGeoLocation - geoLocation: %@", geoLocation);
+   }
+  ];
+  return geoLocation;
+}
+
+
+
+-(void) animate
+{
+  //region.span.latitudeDelta += 0.5;
+  //region.span.longitudeDelta += 0.5;
+  //region = map.region;
+  //NSLog(@"region.span.latitudeDelta: %f", region.span.latitudeDelta);
+  
+  for (;;)
+  {
+    //[self getISSGeoLocation];
+    [self getCoordinates];
+    //[self performSelector:@selector(getCoordinates) withObject:self afterDelay:3.0 ];
+    [self plotISSCoordinates];
+  }
+}
+
+
+
 #pragma mark - Delegate method - replace pin image with custom iss.png image
-- (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation
+- (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)theAnnotation
 {
   NSLog(@"mapView - viewForAnnotation");
-  [map removeAnnotation:annotation];
+  [map removeAnnotation:theAnnotation];
 
-  if ([annotation isKindOfClass:[MyAnnotation class]])
+  if ([theAnnotation isKindOfClass:[MyAnnotation class]])
   {
     NSString *annotationIdentifier = @"issAnnotationIdentifier";
     issAnnotationView *annotationView = (issAnnotationView *)[map dequeueReusableAnnotationViewWithIdentifier:annotationIdentifier];
@@ -179,12 +254,19 @@
     if(annotationView)
     {
       annotationView.annotation = annotation;
-      
     }
     else
     {
       annotationView = [[issAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:annotationIdentifier];
-      annotationView.image = [UIImage imageNamed:@"iss_pin.png"];
+      
+      if((issLocation.latitude == 14.5995124) && (issLocation.longitude = 120.9842195))
+      {
+        annotationView.image = [UIImage imageNamed:@"dungeon_logo.png"];
+      }
+      else
+      {
+        annotationView.image = [UIImage imageNamed:@"iss_pin.png"];
+      }
     }
     
     return annotationView;
@@ -194,15 +276,50 @@
 }
 
 
+#pragma mark - Delegate method - Updating current map region
+- (void)mapView:(MKMapView *)theMapView regionWillChangeAnimated:(BOOL)animated
+{
+  NSLog(@"regionWillChangeAnimated");
+  
+  region = map.region;
+}
+
+
+#pragma mark - Delegate method - Updating zoomed region in map and updating display of ISS annotation
+- (void)mapView:(MKMapView *)theMapView regionDidChangeAnimated:(BOOL)animated
+{
+  MKCoordinateRegion newRegion = map.region;
+  
+  if (region.span.latitudeDelta != newRegion.span.latitudeDelta ||
+        region.span.longitudeDelta != newRegion.span.longitudeDelta)
+  {
+    //Set map region to newRegion
+    region = MKCoordinateRegionMake(issLocation, span);
+    [map setRegion:newRegion animated:YES];
+      
+    //Annotate coordinate location in map
+    annotation = [[MyAnnotation alloc] initWithCoordinate:issLocation];
+      
+    //Get geographical location of ISS
+    annotation.title = @"ISS";
+    NSLog(@"regionDidChangeAnimated - geoLocation: %@", geoLocation);
+    annotation.subtitle = geoLocation;
+    [map addAnnotation:annotation];
+  }
+}
+
+
 #pragma mark - [Tweet] button implementation
 - (IBAction)tweetButton:(id)sender
 {
   NSLog(@"Tweet tweet");
+  [self getISSGeoLocation];
   
   if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
   {
     SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-    [tweetSheet setInitialText:@"Tweeting from my own app! :)"]; //ISS is overhead / date time
+    NSString *tweetMessage = [[NSString alloc] initWithFormat:@"The ISS is overhead %@. \nI'm tweeting using Spot the Station app :)", locatedAt];
+    [tweetSheet setInitialText:tweetMessage]; //ISS is overhead / date time //@"Tweeting from my own app! :)"
     [self presentViewController:tweetSheet animated:YES completion:nil];
   }
   else
@@ -239,6 +356,23 @@
                                  otherButtonTitles:nil];
   [aboutAlertView show];
 }
+
+
+#pragma mark - Connection didFailWithError
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+  NSLog(@"connection didFailWithError: %@", [error localizedDescription]);
+}
+
+#pragma mark - Connection didReceiveResponse
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+  NSHTTPURLResponse *httpResponse;
+  httpResponse = (NSHTTPURLResponse *)response;
+  httpResponseCode = [httpResponse statusCode];
+  NSLog(@"httpResponse status code: %d", httpResponseCode);
+}
+
 
 
 @end
