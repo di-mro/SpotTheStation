@@ -231,7 +231,7 @@
   
   for (;;)
   {
-    //[self getISSGeoLocation];
+    [self getISSGeoLocation];
     [self getCoordinates];
     //[self performSelector:@selector(getCoordinates) withObject:self afterDelay:3.0 ];
     [self plotISSCoordinates];
