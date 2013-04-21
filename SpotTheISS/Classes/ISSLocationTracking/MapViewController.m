@@ -165,6 +165,7 @@
   
   region = MKCoordinateRegionMake(issLocation, span);
   [map setRegion:region animated:YES];
+  //[map setNeedsDisplay];
   
   //Annotate coordinate location in map
   annotation = [[MyAnnotation alloc] initWithCoordinate:issLocation];
@@ -203,7 +204,50 @@
      }
      else
      {
-       tempGeoLocation = [[NSString alloc] initWithFormat:@"Hi there! I am currently over the %@", locatedAt];
+       /*
+       //Greetings
+       //Manila, Philippines
+       if((issLocation.latitude == 14.5995124) && (issLocation.longitude = 120.9842195))
+       {
+         tempGeoLocation = [[NSString alloc] initWithFormat:@"Mabuhay! I am currently over the %@", locatedAt];
+       }
+       //USA
+       else if ((issLocation.latitude == 40.4230) && (issLocation.longitude = 98.7372))
+       {
+         tempGeoLocation = [[NSString alloc] initWithFormat:@"Howdy! I am currently over the %@", locatedAt];
+       }
+       //Tokyo, Japan
+       else if ((issLocation.latitude == 35.6833) && (issLocation.longitude = 139.7667))
+       {
+         tempGeoLocation = [[NSString alloc] initWithFormat:@"こんにちは! I am currently over the %@", locatedAt];
+       }
+       //Paris, France
+       else if ((issLocation.latitude == 48.8742) && (issLocation.longitude = 2.3470))
+       {
+         tempGeoLocation = [[NSString alloc] initWithFormat:@"Bonjour! I am currently over the %@", locatedAt];
+       }
+       //Paris, France
+       else if ((issLocation.latitude == 48.8742) && (issLocation.longitude = 2.3470))
+       {
+         tempGeoLocation = [[NSString alloc] initWithFormat:@"Bonjour! I am currently over the %@", locatedAt];
+       }
+       //Madrid, Spain
+       else if ((issLocation.latitude == 40.4000) && (issLocation.longitude = 3.6833))
+       {
+         tempGeoLocation = [[NSString alloc] initWithFormat:@"Bonjour! I am currently over the %@", locatedAt];
+       }
+       //Mumbai, India
+       else if ((issLocation.latitude == 18.9647) && (issLocation.longitude = 72.8258))
+       {
+         tempGeoLocation = [[NSString alloc] initWithFormat:@"Bonjour! I am currently over the %@", locatedAt];
+       }
+       else
+       {
+         tempGeoLocation = [[NSString alloc] initWithFormat:@"Hi there! I am currently over the %@", locatedAt];
+       }
+       */
+       
+       tempGeoLocation = [[NSString alloc] initWithFormat:@"Hi there! I am currently over %@", locatedAt];
      }
      
      //Assign location to geoLocation
@@ -250,16 +294,19 @@
       if((issLocation.latitude == 14.5995124) && (issLocation.longitude = 120.9842195))
       {
         annotationView.image = [UIImage imageNamed:@"dungeon_logo.png"];
+        annotation.title = @"We Love The ISS";
+        annotation.subtitle = @"It looks like two Dungeon logos from afar :)";
       }
       else
       {
         //Set annotation image to ISS image
         annotationView.image = [UIImage imageNamed:@"iss_pin.png"];
+        
       }
     }
-    
     return annotationView;
   }
+
   return nil;
 }
 
@@ -292,6 +339,7 @@
     annotation.title = @"ISS";
     NSLog(@"regionDidChangeAnimated - geoLocation: %@", geoLocation);
     annotation.subtitle = geoLocation;
+    
     [map addAnnotation:annotation];
   }
 }

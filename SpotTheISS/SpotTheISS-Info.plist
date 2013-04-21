@@ -14,7 +14,7 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>iss_app_icon.png</string>
+				<string>iss_dungeon-icon.png</string>
 			</array>
 		</dict>
 	</dict>
