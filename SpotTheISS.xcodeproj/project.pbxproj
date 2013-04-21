@@ -17,10 +17,10 @@
 		ED3F814C1720302200AD872A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3F81441720302200AD872A /* ViewController.m */; };
 		ED3F81521720303B00AD872A /* iss_app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ED3F814F1720303B00AD872A /* iss_app_icon.png */; };
 		ED3F81531720303B00AD872A /* iss_cartoon.png in Resources */ = {isa = PBXBuildFile; fileRef = ED3F81501720303B00AD872A /* iss_cartoon.png */; };
-		ED3F81541720303B00AD872A /* iss_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = ED3F81511720303B00AD872A /* iss_pin.png */; };
 		ED7B7BA0171C0A35000A382B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7B7B9F171C0A35000A382B /* MapKit.framework */; };
 		ED7B7BBF171E92E6000A382B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7B7BBE171E92E6000A382B /* Social.framework */; };
 		ED98F49117224C9100847646 /* dungeon_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = ED98F49017224C9100847646 /* dungeon_logo.png */; };
+		ED98F4981723986B00847646 /* iss_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = ED98F4971723986B00847646 /* iss_pin.png */; };
 		EDC4BA35171BFDD900B78050 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC4BA34171BFDD900B78050 /* UIKit.framework */; };
 		EDC4BA37171BFDD900B78050 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC4BA36171BFDD900B78050 /* Foundation.framework */; };
 		EDC4BA39171BFDD900B78050 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC4BA38171BFDD900B78050 /* CoreGraphics.framework */; };
@@ -48,10 +48,10 @@
 		ED3F81441720302200AD872A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		ED3F814F1720303B00AD872A /* iss_app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iss_app_icon.png; sourceTree = "<group>"; };
 		ED3F81501720303B00AD872A /* iss_cartoon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iss_cartoon.png; sourceTree = "<group>"; };
-		ED3F81511720303B00AD872A /* iss_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iss_pin.png; sourceTree = "<group>"; };
 		ED7B7B9F171C0A35000A382B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		ED7B7BBE171E92E6000A382B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		ED98F49017224C9100847646 /* dungeon_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dungeon_logo.png; sourceTree = "<group>"; };
+		ED98F4971723986B00847646 /* iss_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iss_pin.png; sourceTree = "<group>"; };
 		EDC4BA31171BFDD900B78050 /* SpotTheISS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotTheISS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDC4BA34171BFDD900B78050 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EDC4BA36171BFDD900B78050 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -149,7 +149,7 @@
 				ED98F49017224C9100847646 /* dungeon_logo.png */,
 				ED3F814F1720303B00AD872A /* iss_app_icon.png */,
 				ED3F81501720303B00AD872A /* iss_cartoon.png */,
-				ED3F81511720303B00AD872A /* iss_pin.png */,
+				ED98F4971723986B00847646 /* iss_pin.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -265,8 +265,8 @@
 				ED3F814B1720302200AD872A /* MainStoryboard.storyboard in Resources */,
 				ED3F81521720303B00AD872A /* iss_app_icon.png in Resources */,
 				ED3F81531720303B00AD872A /* iss_cartoon.png in Resources */,
-				ED3F81541720303B00AD872A /* iss_pin.png in Resources */,
 				ED98F49117224C9100847646 /* dungeon_logo.png in Resources */,
+				ED98F4981723986B00847646 /* iss_pin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

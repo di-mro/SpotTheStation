@@ -12,6 +12,8 @@
 
 @synthesize issFactsArray;
 
+
+#pragma mark - Initialize ISS facts
 -(void) initFacts
 {
   //Initialize ISS Facts
@@ -126,12 +128,13 @@
                                 , nil];
 }
 
+
+#pragma mark - Method to display a random fact upon opening the app
 -(void) displayFact
 {
   [self initFacts];
   
   uint32_t randomIndex = arc4random_uniform([issFactsArray count]);
-  //NSUInteger randomIndex = arc4random() % [issFactsArray count];
   
   NSString *randomFact = [issFactsArray objectAtIndex:randomIndex];
   NSLog(@"randomFact: %@", randomFact);
@@ -152,5 +155,6 @@
   [factAlert addSubview:imageView];
   [factAlert show];
 }
+
 
 @end

@@ -37,12 +37,6 @@
   
   if (self)
   {
-    /*
-    UIImage *myImage = [UIImage imageNamed:@"iss_ping.png"];
-    self.image = myImage;
-    NSLog(@"myImage");
-    */
-    
     // Set the frame size to the appropriate values.
     CGRect  myFrame = self.frame;
     myFrame.size.width = 40;
@@ -53,7 +47,6 @@
     self.centerOffset = CGPointMake(1, 1);
     
     self.canShowCallout = YES;
-    //self.canShowCallout = NO;
     
     // The opaque property is YES by default. Setting it to
     // NO allows map content to show through any unrendered

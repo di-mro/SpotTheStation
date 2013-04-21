@@ -42,12 +42,12 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self)
-    {
-        // Custom initialization
-    }
-    return self;
+  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+  if (self)
+  {
+    // Custom initialization
+  }
+  return self;
 }
 
 - (void)viewDidLoad
@@ -56,16 +56,17 @@
   map = [[MKMapView alloc] initWithFrame:CGRectMake(0, 44, 320, 416)];
   map.delegate = self;
   map.mapType = MKMapTypeStandard;
+  map.zoomEnabled = FALSE;
   [self.view addSubview:map];
   NSLog(@"Map initialized");
   
-  //Display fact
+  //Display an ISS fact upon opening
   issFacts *facts = [[issFacts alloc] init];
   [facts displayFact];
   
   [self getISSGeoLocation];
-  //[self getCoordinates];
-  //[self plotISSCoordinates];
+  [self getCoordinates];
+  [self plotISSCoordinates];
   
   NSThread *animationThread = [[NSThread alloc] initWithTarget:self selector:@selector(animate) object:nil];
   [animationThread start];
@@ -80,17 +81,16 @@
 
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+  [super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
 }
 
 
 #pragma mark - Get coordinates (latitude, longitude) from open-notify.org
 - (void) getCoordinates
 {
-  //Conect to open-notify
+  //Conect to open-notify.org to get JSON coordinates
   NSString *URL = @"http://api.open-notify.org/iss-now/v1/";
-  //NSString *URL = @"";
   NSMutableURLRequest *getRequest = [NSMutableURLRequest
                                      requestWithURL:[NSURL URLWithString:URL]];
   
@@ -111,7 +111,6 @@
                           sendSynchronousRequest:getRequest
                           returningResponse:&urlResponse
                           error:&error];
-  //-end connect to open-notify
   
   if (responseData == nil)
   {
@@ -124,7 +123,7 @@
                                     otherButtonTitles:nil];
     [connectionAlert show];
     
-    //Show sample default location if offline - Manila
+    //Show sample default location if offline - Manila, Philippines
     issLocation.latitude  = 14.5995124;
     issLocation.longitude = 120.9842195;
   }
@@ -133,10 +132,10 @@
     /*
      timestamp: 1366015403,
      message: "success",
-     iss_position: 
+     iss_position:
      {
-      latitude: 8.693589426544582,
-      longitude: 92.54594185722208
+     latitude: 8.693589426544582,
+     longitude: 92.54594185722208
      }
      */
     
@@ -145,7 +144,7 @@
                 JSONObjectWithData:responseData
                 options:kNilOptions
                 error:&error];
-    NSLog(@"location JSON Result: %@", location);
+    NSLog(@"opennotify - location JSON Result: %@", location);
     
     //Retrieve latitude and longitude value from JSON
     NSNumber *latitude = [[location valueForKey:@"iss_position"] valueForKey:@"latitude"];
@@ -154,20 +153,6 @@
     issLocation.latitude  = latitude.doubleValue;
     issLocation.longitude = longitude.doubleValue;
   }
-  
-  /*
-  region = MKCoordinateRegionMake(issLocation, span);
-  [map setRegion:region animated:YES];
-  
-  //Annotate coordinate location in map
-  annotation = [[MyAnnotation alloc] initWithCoordinate:issLocation];
-  
-  //Get geographical location of ISS
-  NSLog(@"plotISSCoordinates - geoLocation: %@", geoLocation);
-  annotation.title = @"ISS Location";
-  annotation.subtitle = geoLocation;
-  [map addAnnotation:annotation];
-  */
 }
 
 
@@ -175,8 +160,8 @@
 -(void) plotISSCoordinates
 {
   //Set latitude and longitude delta for the map
-  span.latitudeDelta = 80.0f; //0.2f
-  span.longitudeDelta = 80.0f; //0.2f
+  span.latitudeDelta = 100.0f; //0.2f
+  span.longitudeDelta = 100.0f; //0.2f
   
   region = MKCoordinateRegionMake(issLocation, span);
   [map setRegion:region animated:YES];
@@ -197,22 +182,31 @@
 {
   CLGeocoder *geocoder = [[CLGeocoder alloc]init];
   CLLocation *loc = [[CLLocation alloc] initWithLatitude:issLocation.latitude longitude:issLocation.longitude];
+  
   geoLocation = [[NSString alloc] init];
   
   [geocoder reverseGeocodeLocation: loc completionHandler:
    ^(NSArray *placemarks, NSError *error)
    {
      CLPlacemark *placemark = [placemarks objectAtIndex:0];
+     NSString *tempGeoLocation;
      
      //String to hold address
      locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
      NSLog(@"addressDictionary %@", placemark.addressDictionary);
-     //NSString *locatedAt = [placemark.addressDictionary valueForKey:@"Name"];
-     //NSString *countryName = [placemark.addressDictionary valueForKey:@"Country"];
      
-     NSString *tempGeoLocation = [[NSString alloc] initWithFormat:@"I am currently overhead %@", locatedAt];
+     //If no geographic place matches a given coordinate
+     if (placemark.addressDictionary == NULL)
+     {
+       tempGeoLocation = [[NSString alloc] initWithFormat:@"Hi there! I am currently over Earth"];
+       locatedAt = @"Earth";
+     }
+     else
+     {
+       tempGeoLocation = [[NSString alloc] initWithFormat:@"Hi there! I am currently over the %@", locatedAt];
+     }
      
-     //Print the location to console
+     //Assign location to geoLocation
      geoLocation = tempGeoLocation;
      NSLog(@"getISSGeoLocation - geoLocation: %@", geoLocation);
    }
@@ -221,23 +215,17 @@
 }
 
 
-
+#pragma mark - Simulating the ISS movement in the map
 -(void) animate
 {
-  //region.span.latitudeDelta += 0.5;
-  //region.span.longitudeDelta += 0.5;
-  //region = map.region;
-  //NSLog(@"region.span.latitudeDelta: %f", region.span.latitudeDelta);
-  
+  //Continuous loop to get the coordinates and plot them in the map
   for (;;)
   {
     [self getISSGeoLocation];
     [self getCoordinates];
-    //[self performSelector:@selector(getCoordinates) withObject:self afterDelay:3.0 ];
     [self plotISSCoordinates];
   }
 }
-
 
 
 #pragma mark - Delegate method - replace pin image with custom iss.png image
@@ -245,7 +233,7 @@
 {
   NSLog(@"mapView - viewForAnnotation");
   [map removeAnnotation:theAnnotation];
-
+  
   if ([theAnnotation isKindOfClass:[MyAnnotation class]])
   {
     NSString *annotationIdentifier = @"issAnnotationIdentifier";
@@ -258,20 +246,20 @@
     else
     {
       annotationView = [[issAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:annotationIdentifier];
-      
+
       if((issLocation.latitude == 14.5995124) && (issLocation.longitude = 120.9842195))
       {
         annotationView.image = [UIImage imageNamed:@"dungeon_logo.png"];
       }
       else
       {
+        //Set annotation image to ISS image
         annotationView.image = [UIImage imageNamed:@"iss_pin.png"];
       }
     }
     
     return annotationView;
   }
-  
   return nil;
 }
 
@@ -291,15 +279,15 @@
   MKCoordinateRegion newRegion = map.region;
   
   if (region.span.latitudeDelta != newRegion.span.latitudeDelta ||
-        region.span.longitudeDelta != newRegion.span.longitudeDelta)
+      region.span.longitudeDelta != newRegion.span.longitudeDelta)
   {
     //Set map region to newRegion
     region = MKCoordinateRegionMake(issLocation, span);
     [map setRegion:newRegion animated:YES];
-      
+    
     //Annotate coordinate location in map
     annotation = [[MyAnnotation alloc] initWithCoordinate:issLocation];
-      
+    
     //Get geographical location of ISS
     annotation.title = @"ISS";
     NSLog(@"regionDidChangeAnimated - geoLocation: %@", geoLocation);
@@ -318,8 +306,8 @@
   if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
   {
     SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-    NSString *tweetMessage = [[NSString alloc] initWithFormat:@"The ISS is overhead %@. \nI'm tweeting using Spot the Station app :)", locatedAt];
-    [tweetSheet setInitialText:tweetMessage]; //ISS is overhead / date time //@"Tweeting from my own app! :)"
+    NSString *tweetMessage = [[NSString alloc] initWithFormat:@"The ISS is currently over the %@. \nI'm tweeting using Spot the Station app :)", locatedAt];
+    [tweetSheet setInitialText:tweetMessage];
     [self presentViewController:tweetSheet animated:YES completion:nil];
   }
   else
@@ -338,6 +326,7 @@
 #pragma mark - [About] button implementation
 - (IBAction)aboutButton:(id)sender
 {
+  //Listing of sources for the facts
   NSString *source1 = @"http://www.nasa.gov/mission_pages/station/main/onthestation/facts_and_figures.html";
   NSString *source2 = @"http://www.bbc.co.uk/science/space/solarsystem/space_missions/international_space_station";
   NSString *source3 = @"http://blogs.scientificamerican.com/observations/2010/11/03/10-facts-about-the-international-space-station-and-life-in-orbit/";
