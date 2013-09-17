@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MapViewController.h"
+#import "issFacts.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+{
+  MapViewController *issMapInit;
+  issFacts *facts;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 

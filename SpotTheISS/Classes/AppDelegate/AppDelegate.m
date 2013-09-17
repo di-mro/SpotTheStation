@@ -12,8 +12,38 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    return YES;
+  /*
+  //Change font and appearance of UINavigationBar title
+  if ([[UINavigationBar class] respondsToSelector:@selector(appearance)])
+  {
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                          [UIColor whiteColor], UITextAttributeTextColor,
+                                                          [UIColor blackColor], UITextAttributeTextShadowColor,
+                                                          [NSValue valueWithUIOffset:UIOffsetMake(1, 0)], UITextAttributeTextShadowOffset,
+                                                          [UIFont fontWithName:@"Chalkduster" size:20.0], UITextAttributeFont, nil]];
+  }
+   //*/
+  
+  [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                        [UIColor whiteColor], UITextAttributeTextColor,
+                                                        [UIColor blackColor], UITextAttributeTextShadowColor,
+                                                        [NSValue valueWithUIOffset:UIOffsetMake(1, 0)], UITextAttributeTextShadowOffset,
+                                                        [UIFont fontWithName:@"Chalkduster" size:20.0], UITextAttributeFont, nil]];
+  
+  //Change font of UIBarButtonItems
+  [[UIBarButtonItem appearance] setTitleTextAttributes:
+   [NSDictionary dictionaryWithObjectsAndKeys:
+    [UIColor whiteColor], UITextAttributeTextColor,
+    [UIColor blackColor], UITextAttributeTextShadowColor,
+    [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset,
+    [UIFont fontWithName:@"American Typewriter" size:13.0], UITextAttributeFont, nil]
+                                              forState:UIControlStateNormal];
+  
+  
+  issMapInit = [MapViewController alloc];
+  
+  // Override point for customization after application launch.
+  return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -30,6 +60,11 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+  issMapInit = [MapViewController alloc];
+  
+  facts = [issFacts alloc];
+  [facts displayFact];
+  
   // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 

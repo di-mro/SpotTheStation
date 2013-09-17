@@ -38,14 +38,13 @@
   if (self)
   {
     // Set the frame size to the appropriate values.
-    CGRect  myFrame = self.frame;
-    myFrame.size.width = 40;
+    CGRect myFrame      = self.frame;
+    myFrame.size.width  = 40;
     myFrame.size.height = 40;
-    self.frame = myFrame;
+    self.frame          = myFrame;
     
-    self.contentMode = UIViewContentModeScaleAspectFill;
-    self.centerOffset = CGPointMake(1, 1);
-    
+    self.contentMode    = UIViewContentModeScaleAspectFill;
+    self.centerOffset   = CGPointMake(1, 1);
     self.canShowCallout = YES;
     
     // The opaque property is YES by default. Setting it to
@@ -53,6 +52,7 @@
     // parts of your view.
     self.opaque = NO;
   }
+  
   return self;
 }
 

@@ -87,45 +87,61 @@
   
   NSString *fact35 = @"The human body tends to lose muscle and bone mass rapidly in space. To fight this loss, at least two hours of strenuous exercise is built into every astronaut's daily schedule on the Space Station.";
   
+  NSString *fact36 = @"A total of 168 spacewalks have been conducted in support of space station assembly totaling more than 1,061 hours, or more than 44 days.";
+  
+  NSString *fact37 = @"There is approximately 2.3 million lines of computer code in the International Space Station.";
+  
+  NSString *fact38 = @"Astronauts and supplies are ferried by the U.S. space shuttles and the Russian Soyuz and Progress spacecraft.";
+  
+  NSString *fact39 = @"Astronauts who reach the facility aboard one of these missions typically live and work in orbit for about six months.";
+  
+  NSString *fact40 = @"The ISS's Zarya Module is mainly used for storage and external fuel tanks, while the Zvezda Service Module houses the crew's living quarters and the station's many life-supporting systems.";
+  
   
   //Initialize array of ISS Facts
   issFactsArray = [[NSMutableArray alloc]
-                   initWithObjects: fact1
-                                , fact2
-                                , fact3
-                                , fact4
-                                , fact5
-                                , fact6
-                                , fact7
-                                , fact8
-                                , fact9
-                                , fact10
-                                , fact11
-                                , fact12
-                                , fact13
-                                , fact14
-                                , fact15
-                                , fact16
-                                , fact17
-                                , fact18
-                                , fact19
-                                , fact20
-                                , fact21
-                                , fact22
-                                , fact23
-                                , fact24
-                                , fact25
-                                , fact26
-                                , fact27
-                                , fact28
-                                , fact29
-                                , fact30
-                                , fact31
-                                , fact32
-                                , fact33
-                                , fact34
-                                , fact35
-                                , nil];
+                   initWithObjects:
+                   fact1
+                   , fact2
+                   , fact3
+                   , fact4
+                   , fact5
+                   , fact6
+                   , fact7
+                   , fact8
+                   , fact9
+                   , fact10
+                   , fact11
+                   , fact12
+                   , fact13
+                   , fact14
+                   , fact15
+                   , fact16
+                   , fact17
+                   , fact18
+                   , fact19
+                   , fact20
+                   , fact21
+                   , fact22
+                   , fact23
+                   , fact24
+                   , fact25
+                   , fact26
+                   , fact27
+                   , fact28
+                   , fact29
+                   , fact30
+                   , fact31
+                   , fact32
+                   , fact33
+                   , fact34
+                   , fact35
+                   , fact36
+                   , fact37
+                   , fact38
+                   , fact39
+                   , fact40
+                   , nil];
 }
 
 
@@ -140,15 +156,16 @@
   NSLog(@"randomFact: %@", randomFact);
   
   UIAlertView *factAlert = [[UIAlertView alloc]
-                            initWithTitle:@"ISS Fact"
-                            message:randomFact
-                            delegate:self
+                                initWithTitle:@"ISS Fact"
+                                      message:randomFact
+                                     delegate:self
                             cancelButtonTitle:@"OK"
                             otherButtonTitles:nil];
   
   UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(230, 10, 60, 40)]; //(220, 10, 40, 40)
   
   NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"iss_cartoon.png"]];
+  
   UIImage *bkgImg = [[UIImage alloc] initWithContentsOfFile:path];
   [imageView setImage:bkgImg];
   

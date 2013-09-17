@@ -11,7 +11,6 @@
 
 @interface issAnnotationView : MKAnnotationView
 {
-  
 }
 
 @end

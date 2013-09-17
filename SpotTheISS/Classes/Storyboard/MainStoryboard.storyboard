@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -7,17 +7,22 @@
         <!--Map View Controller-->
         <scene sceneID="5">
             <objects>
-                <viewController id="2" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewPage" id="2" customClass="MapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W8g-b5-cDs">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" id="W8g-b5-cDs">
+                                <rect key="frame" x="0.0" y="44" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="2" id="Z1G-i3-WxS"/>
                                 </connections>
                             </mapView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LfE-ti-fNR">
+                            <navigationBar contentMode="scaleToFill" id="LfE-ti-fNR">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="tintColor" red="0.0" green="0.19215686274509802" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Spot the ISS" id="j1a-vs-mXu">
                                         <barButtonItem key="leftBarButtonItem" title="Tweet" id="tbb-Yi-6ce">
@@ -38,15 +43,6 @@
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="W8g-b5-cDs" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="2rw-x8-RCn"/>
-                            <constraint firstItem="W8g-b5-cDs" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="Lm7-2D-CcN"/>
-                            <constraint firstItem="W8g-b5-cDs" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="fg8-6u-qE8"/>
-                            <constraint firstItem="LfE-ti-fNR" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="fyH-hy-aAl"/>
-                            <constraint firstItem="LfE-ti-fNR" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="jXh-b1-psJ"/>
-                            <constraint firstItem="LfE-ti-fNR" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="sVg-ch-f5A"/>
-                            <constraint firstItem="LfE-ti-fNR" firstAttribute="bottom" secondItem="W8g-b5-cDs" secondAttribute="top" type="default" id="twI-il-fau"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="issNavigationBar" destination="LfE-ti-fNR" id="hap-DD-K5U"/>
@@ -56,10 +52,280 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--About Page View Controller-->
+        <scene sceneID="Gul-Z5-5LE">
+            <objects>
+                <viewController storyboardIdentifier="AboutPage" id="hP5-6O-G7p" customClass="AboutPageViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xq8-gP-ECW">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" id="3DA-AS-rbn">
+                                <rect key="frame" x="0.0" y="44" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content=" Fact Sources">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="13" name="Courier-Bold"/>
+                                            <integer key="NSLigature" value="0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="13.199999999999999">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="13.199999809265137"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="  ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Courier"/>
+                                            <integer key="NSLigature" value="0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="13.199999999999999">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="13.199999809265137"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="http://www.nasa.gov/mission_pages/station/main/onthestation/facts_and_figures.html">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Courier"/>
+                                            <integer key="NSLigature" value="0"/>
+                                            <url key="NSLink" string="http://www.nasa.gov/mission_pages/station/main/onthestation/facts_and_figures.html"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="13.199999999999999">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="13.199999809265137"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+ </string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Courier"/>
+                                            <integer key="NSLigature" value="0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="13.199999999999999">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="13.199999809265137"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="http://www.bbc.co.uk/science/space/solarsystem/space_missions/international_space_station">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Courier"/>
+                                            <integer key="NSLigature" value="0"/>
+                                            <url key="NSLink" string="http://www.bbc.co.uk/science/space/solarsystem/space_missions/international_space_station"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="13.199999999999999">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="13.199999809265137"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="  ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Courier"/>
+                                            <integer key="NSLigature" value="0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="13.199999999999999">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="13.199999809265137"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="http://blogs.scientificamerican.com/observations/2010/11/03/10-facts-about-the-international-space-station-and-life-in-orbit/">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Courier"/>
+                                            <integer key="NSLigature" value="0"/>
+                                            <url key="NSLink" string="http://blogs.scientificamerican.com/observations/2010/11/03/10-facts-about-the-international-space-station-and-life-in-orbit/"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="13.199999999999999">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="13.199999809265137"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="  ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Courier"/>
+                                            <integer key="NSLigature" value="0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="13.199999999999999">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="13.199999809265137"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="http://www.boeing.com/boeing/defense-space/space/spacestation/overview/facts.page">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Courier"/>
+                                            <integer key="NSLigature" value="0"/>
+                                            <url key="NSLink" string="http://www.boeing.com/boeing/defense-space/space/spacestation/overview/facts.page"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="13.199999999999999">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="13.199999809265137"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="  ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Courier"/>
+                                            <integer key="NSLigature" value="0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="13.199999999999999">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="13.199999809265137"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="http://www.pbs.org/spacestation/station/issfactsheet.htm">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Courier"/>
+                                            <integer key="NSLigature" value="0"/>
+                                            <url key="NSLink" string="http://www.pbs.org/spacestation/station/issfactsheet.htm"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="13.199999999999999">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="13.199999809265137"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="  ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Courier"/>
+                                            <integer key="NSLigature" value="0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="13.199999999999999">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="13.199999809265137"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="http://science.nationalgeographic.com/science/space/space-exploration/international-space-station-article/">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Courier"/>
+                                            <integer key="NSLigature" value="0"/>
+                                            <url key="NSLink" string="http://science.nationalgeographic.com/science/space/space-exploration/international-space-station-article/"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="13.199999999999999">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="13.199999809265137"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Courier"/>
+                                            <integer key="NSLigature" value="0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="13.199999999999999">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="13.199999809265137"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="                                                        ">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Courier"/>
+                                            <integer key="NSLigature" value="0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="13.199999999999999">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="13.199999809265137"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">This app is part of the NASA International Space Apps Challenge 2013.  Powered by the Dungeon Innovations team. www.dungeoninnovations.com</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                            <integer key="NSLigature" value="0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="13.199999999999999">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="13.199999809265137"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="12" name="Courier"/>
+                                            <integer key="NSLigature" value="0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" defaultTabInterval="13.199999999999999">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="13.199999809265137"/>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Dungeon_Logo_Square.jpg" id="4VQ-5q-aBM">
+                                <rect key="frame" x="115" y="518" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <navigationBar contentMode="scaleToFill" id="xgk-1h-Pck">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.0" green="0.19215686274509802" blue="0.32549019607843138" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="About" id="2Nt-zE-fA3">
+                                        <barButtonItem key="leftBarButtonItem" image="chevron-left.png" id="VEb-dv-SIB">
+                                            <connections>
+                                                <action selector="goToMaps:" destination="hP5-6O-G7p" id="v3P-Nh-i0k"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="CD2-20-fJh"/>
+                    <connections>
+                        <outlet property="aboutNavBar" destination="xgk-1h-Pck" id="lhp-vo-Ubm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hZz-Nx-aq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="552" y="21"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="Dungeon_Logo_Square.jpg" width="400" height="400"/>
+        <image name="chevron-left.png" width="16" height="16"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>

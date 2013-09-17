@@ -8,13 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import <Social/Social.h>
 
 #import "MyAnnotation.h"
+
 
 @interface MapViewController : UIViewController <MKMapViewDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *map;
 @property (strong, nonatomic) IBOutlet UINavigationBar *issNavigationBar;
+
+@property (strong, nonatomic) NSThread *animationThread;
 
 @property (strong, nonatomic) NSMutableDictionary *location;
 
@@ -29,8 +33,17 @@
 
 @property int httpResponseCode;
 
+@property int onlineFlag;
+
 - (IBAction)tweetButton:(id)sender;
 - (IBAction)aboutButton:(id)sender;
+
+
+//Initialize plotting and tracking of ISS
+-(void) initISS;
+
+- (void) getCoordinates;
+
 
 
 @end

@@ -7,21 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ED3F81451720302200AD872A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3F81351720302200AD872A /* AppDelegate.m */; };
-		ED3F81461720302200AD872A /* issFacts.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3F81381720302200AD872A /* issFacts.m */; };
-		ED3F81471720302200AD872A /* issAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3F813B1720302200AD872A /* issAnnotationView.m */; };
-		ED3F81481720302200AD872A /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3F813D1720302200AD872A /* MapViewController.m */; };
-		ED3F81491720302200AD872A /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3F813F1720302200AD872A /* MyAnnotation.m */; };
-		ED3F814A1720302200AD872A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3F81401720302200AD872A /* main.m */; };
-		ED3F814B1720302200AD872A /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED3F81421720302200AD872A /* MainStoryboard.storyboard */; };
-		ED3F814C1720302200AD872A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3F81441720302200AD872A /* ViewController.m */; };
+		ED0DAFAF17CC5E9F000B2B54 /* iss_dungeon-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0DAFAE17CC5E9F000B2B54 /* iss_dungeon-icon.png */; };
 		ED3F81521720303B00AD872A /* iss_app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ED3F814F1720303B00AD872A /* iss_app_icon.png */; };
 		ED3F81531720303B00AD872A /* iss_cartoon.png in Resources */ = {isa = PBXBuildFile; fileRef = ED3F81501720303B00AD872A /* iss_cartoon.png */; };
+		ED54154C17E83AB500FCDA45 /* chevron-left.png in Resources */ = {isa = PBXBuildFile; fileRef = ED54154A17E83AB500FCDA45 /* chevron-left.png */; };
+		ED54154D17E83AB500FCDA45 /* Dungeon_Logo_Square.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED54154B17E83AB500FCDA45 /* Dungeon_Logo_Square.jpg */; };
+		ED54156917E8445B00FCDA45 /* AboutPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54155117E8445B00FCDA45 /* AboutPageViewController.m */; };
+		ED54156A17E8445B00FCDA45 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54155417E8445B00FCDA45 /* AppDelegate.m */; };
+		ED54156B17E8445B00FCDA45 /* issFacts.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54155717E8445B00FCDA45 /* issFacts.m */; };
+		ED54156C17E8445B00FCDA45 /* issAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54155A17E8445B00FCDA45 /* issAnnotationView.m */; };
+		ED54156D17E8445B00FCDA45 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54155C17E8445B00FCDA45 /* MapViewController.m */; };
+		ED54156E17E8445B00FCDA45 /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54155E17E8445B00FCDA45 /* MyAnnotation.m */; };
+		ED54156F17E8445B00FCDA45 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54155F17E8445B00FCDA45 /* main.m */; };
+		ED54157017E8445B00FCDA45 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54156217E8445B00FCDA45 /* Reachability.m */; };
+		ED54157117E8445B00FCDA45 /* ReachabilityAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54156417E8445B00FCDA45 /* ReachabilityAppDelegate.m */; };
+		ED54157217E8445B00FCDA45 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED54156617E8445B00FCDA45 /* MainStoryboard.storyboard */; };
+		ED54157317E8445B00FCDA45 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54156817E8445B00FCDA45 /* ViewController.m */; };
+		ED54157517E8463B00FCDA45 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED54157417E8463B00FCDA45 /* SystemConfiguration.framework */; };
 		ED7B7BA0171C0A35000A382B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7B7B9F171C0A35000A382B /* MapKit.framework */; };
 		ED7B7BBF171E92E6000A382B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7B7BBE171E92E6000A382B /* Social.framework */; };
 		ED98F49117224C9100847646 /* dungeon_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = ED98F49017224C9100847646 /* dungeon_logo.png */; };
 		ED98F4981723986B00847646 /* iss_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = ED98F4971723986B00847646 /* iss_pin.png */; };
-		ED98F49A1723C64100847646 /* iss_dungeon-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ED98F4991723C64100847646 /* iss_dungeon-icon.png */; };
 		EDC4BA35171BFDD900B78050 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC4BA34171BFDD900B78050 /* UIKit.framework */; };
 		EDC4BA37171BFDD900B78050 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC4BA36171BFDD900B78050 /* Foundation.framework */; };
 		EDC4BA39171BFDD900B78050 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC4BA38171BFDD900B78050 /* CoreGraphics.framework */; };
@@ -33,27 +39,36 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		ED3F81341720302200AD872A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		ED3F81351720302200AD872A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		ED3F81371720302200AD872A /* issFacts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = issFacts.h; sourceTree = "<group>"; };
-		ED3F81381720302200AD872A /* issFacts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = issFacts.m; sourceTree = "<group>"; };
-		ED3F813A1720302200AD872A /* issAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = issAnnotationView.h; sourceTree = "<group>"; };
-		ED3F813B1720302200AD872A /* issAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = issAnnotationView.m; sourceTree = "<group>"; };
-		ED3F813C1720302200AD872A /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		ED3F813D1720302200AD872A /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		ED3F813E1720302200AD872A /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
-		ED3F813F1720302200AD872A /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
-		ED3F81401720302200AD872A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		ED3F81421720302200AD872A /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
-		ED3F81431720302200AD872A /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		ED3F81441720302200AD872A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		ED0DAFAE17CC5E9F000B2B54 /* iss_dungeon-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iss_dungeon-icon.png"; path = "../../../iss_dungeon-icon.png"; sourceTree = "<group>"; };
 		ED3F814F1720303B00AD872A /* iss_app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iss_app_icon.png; sourceTree = "<group>"; };
 		ED3F81501720303B00AD872A /* iss_cartoon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iss_cartoon.png; sourceTree = "<group>"; };
+		ED54154A17E83AB500FCDA45 /* chevron-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chevron-left.png"; sourceTree = "<group>"; };
+		ED54154B17E83AB500FCDA45 /* Dungeon_Logo_Square.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Dungeon_Logo_Square.jpg; sourceTree = "<group>"; };
+		ED54155017E8445B00FCDA45 /* AboutPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutPageViewController.h; sourceTree = "<group>"; };
+		ED54155117E8445B00FCDA45 /* AboutPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutPageViewController.m; sourceTree = "<group>"; };
+		ED54155317E8445B00FCDA45 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ED54155417E8445B00FCDA45 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ED54155617E8445B00FCDA45 /* issFacts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = issFacts.h; sourceTree = "<group>"; };
+		ED54155717E8445B00FCDA45 /* issFacts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = issFacts.m; sourceTree = "<group>"; };
+		ED54155917E8445B00FCDA45 /* issAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = issAnnotationView.h; sourceTree = "<group>"; };
+		ED54155A17E8445B00FCDA45 /* issAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = issAnnotationView.m; sourceTree = "<group>"; };
+		ED54155B17E8445B00FCDA45 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		ED54155C17E8445B00FCDA45 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		ED54155D17E8445B00FCDA45 /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
+		ED54155E17E8445B00FCDA45 /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
+		ED54155F17E8445B00FCDA45 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ED54156117E8445B00FCDA45 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		ED54156217E8445B00FCDA45 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		ED54156317E8445B00FCDA45 /* ReachabilityAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityAppDelegate.h; sourceTree = "<group>"; };
+		ED54156417E8445B00FCDA45 /* ReachabilityAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReachabilityAppDelegate.m; sourceTree = "<group>"; };
+		ED54156617E8445B00FCDA45 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		ED54156717E8445B00FCDA45 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		ED54156817E8445B00FCDA45 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		ED54157417E8463B00FCDA45 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		ED7B7B9F171C0A35000A382B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		ED7B7BBE171E92E6000A382B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		ED98F49017224C9100847646 /* dungeon_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dungeon_logo.png; sourceTree = "<group>"; };
 		ED98F4971723986B00847646 /* iss_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iss_pin.png; sourceTree = "<group>"; };
-		ED98F4991723C64100847646 /* iss_dungeon-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iss_dungeon-icon.png"; path = "../../../iss_dungeon-icon.png"; sourceTree = "<group>"; };
 		EDC4BA31171BFDD900B78050 /* SpotTheISS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotTheISS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDC4BA34171BFDD900B78050 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EDC4BA36171BFDD900B78050 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -72,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED54157517E8463B00FCDA45 /* SystemConfiguration.framework in Frameworks */,
 				EDFE53F11721370900F8E8FD /* CoreLocation.framework in Frameworks */,
 				ED7B7BBF171E92E6000A382B /* Social.framework in Frameworks */,
 				ED7B7BA0171C0A35000A382B /* MapKit.framework in Frameworks */,
@@ -84,59 +100,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		ED3F81321720302200AD872A /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				ED3F81331720302200AD872A /* AppDelegate */,
-				ED3F81361720302200AD872A /* ISSFacts */,
-				ED3F81391720302200AD872A /* ISSLocationTracking */,
-				ED3F81411720302200AD872A /* Storyboard */,
-				ED3F81401720302200AD872A /* main.m */,
-				ED3F81431720302200AD872A /* ViewController.h */,
-				ED3F81441720302200AD872A /* ViewController.m */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		ED3F81331720302200AD872A /* AppDelegate */ = {
-			isa = PBXGroup;
-			children = (
-				ED3F81341720302200AD872A /* AppDelegate.h */,
-				ED3F81351720302200AD872A /* AppDelegate.m */,
-			);
-			path = AppDelegate;
-			sourceTree = "<group>";
-		};
-		ED3F81361720302200AD872A /* ISSFacts */ = {
-			isa = PBXGroup;
-			children = (
-				ED3F81371720302200AD872A /* issFacts.h */,
-				ED3F81381720302200AD872A /* issFacts.m */,
-			);
-			path = ISSFacts;
-			sourceTree = "<group>";
-		};
-		ED3F81391720302200AD872A /* ISSLocationTracking */ = {
-			isa = PBXGroup;
-			children = (
-				ED3F813A1720302200AD872A /* issAnnotationView.h */,
-				ED3F813B1720302200AD872A /* issAnnotationView.m */,
-				ED3F813C1720302200AD872A /* MapViewController.h */,
-				ED3F813D1720302200AD872A /* MapViewController.m */,
-				ED3F813E1720302200AD872A /* MyAnnotation.h */,
-				ED3F813F1720302200AD872A /* MyAnnotation.m */,
-			);
-			path = ISSLocationTracking;
-			sourceTree = "<group>";
-		};
-		ED3F81411720302200AD872A /* Storyboard */ = {
-			isa = PBXGroup;
-			children = (
-				ED3F81421720302200AD872A /* MainStoryboard.storyboard */,
-			);
-			path = Storyboard;
-			sourceTree = "<group>";
-		};
 		ED3F814D1720303B00AD872A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,13 +111,90 @@
 		ED3F814E1720303B00AD872A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				ED54154A17E83AB500FCDA45 /* chevron-left.png */,
+				ED54154B17E83AB500FCDA45 /* Dungeon_Logo_Square.jpg */,
 				ED98F49017224C9100847646 /* dungeon_logo.png */,
 				ED3F814F1720303B00AD872A /* iss_app_icon.png */,
 				ED3F81501720303B00AD872A /* iss_cartoon.png */,
-				ED98F4991723C64100847646 /* iss_dungeon-icon.png */,
+				ED0DAFAE17CC5E9F000B2B54 /* iss_dungeon-icon.png */,
 				ED98F4971723986B00847646 /* iss_pin.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		ED54154E17E8445B00FCDA45 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				ED54154F17E8445B00FCDA45 /* AboutPage */,
+				ED54155217E8445B00FCDA45 /* AppDelegate */,
+				ED54155517E8445B00FCDA45 /* ISSFacts */,
+				ED54155817E8445B00FCDA45 /* ISSLocationTracking */,
+				ED54155F17E8445B00FCDA45 /* main.m */,
+				ED54156017E8445B00FCDA45 /* Reachability */,
+				ED54156517E8445B00FCDA45 /* Storyboard */,
+				ED54156717E8445B00FCDA45 /* ViewController.h */,
+				ED54156817E8445B00FCDA45 /* ViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		ED54154F17E8445B00FCDA45 /* AboutPage */ = {
+			isa = PBXGroup;
+			children = (
+				ED54155017E8445B00FCDA45 /* AboutPageViewController.h */,
+				ED54155117E8445B00FCDA45 /* AboutPageViewController.m */,
+			);
+			path = AboutPage;
+			sourceTree = "<group>";
+		};
+		ED54155217E8445B00FCDA45 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				ED54155317E8445B00FCDA45 /* AppDelegate.h */,
+				ED54155417E8445B00FCDA45 /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		ED54155517E8445B00FCDA45 /* ISSFacts */ = {
+			isa = PBXGroup;
+			children = (
+				ED54155617E8445B00FCDA45 /* issFacts.h */,
+				ED54155717E8445B00FCDA45 /* issFacts.m */,
+			);
+			path = ISSFacts;
+			sourceTree = "<group>";
+		};
+		ED54155817E8445B00FCDA45 /* ISSLocationTracking */ = {
+			isa = PBXGroup;
+			children = (
+				ED54155917E8445B00FCDA45 /* issAnnotationView.h */,
+				ED54155A17E8445B00FCDA45 /* issAnnotationView.m */,
+				ED54155B17E8445B00FCDA45 /* MapViewController.h */,
+				ED54155C17E8445B00FCDA45 /* MapViewController.m */,
+				ED54155D17E8445B00FCDA45 /* MyAnnotation.h */,
+				ED54155E17E8445B00FCDA45 /* MyAnnotation.m */,
+			);
+			path = ISSLocationTracking;
+			sourceTree = "<group>";
+		};
+		ED54156017E8445B00FCDA45 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				ED54156117E8445B00FCDA45 /* Reachability.h */,
+				ED54156217E8445B00FCDA45 /* Reachability.m */,
+				ED54156317E8445B00FCDA45 /* ReachabilityAppDelegate.h */,
+				ED54156417E8445B00FCDA45 /* ReachabilityAppDelegate.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		ED54156517E8445B00FCDA45 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				ED54156617E8445B00FCDA45 /* MainStoryboard.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		EDC4BA28171BFDD800B78050 = {
@@ -177,6 +217,7 @@
 		EDC4BA33171BFDD900B78050 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED54157417E8463B00FCDA45 /* SystemConfiguration.framework */,
 				EDFE53F01721370900F8E8FD /* CoreLocation.framework */,
 				ED7B7BBE171E92E6000A382B /* Social.framework */,
 				ED7B7B9F171C0A35000A382B /* MapKit.framework */,
@@ -190,7 +231,7 @@
 		EDC4BA3A171BFDD900B78050 /* SpotTheISS */ = {
 			isa = PBXGroup;
 			children = (
-				ED3F81321720302200AD872A /* Classes */,
+				ED54154E17E8445B00FCDA45 /* Classes */,
 				ED3F814D1720303B00AD872A /* Resources */,
 				EDC4BA3B171BFDD900B78050 /* Supporting Files */,
 			);
@@ -265,12 +306,14 @@
 				EDC4BA47171BFDD900B78050 /* Default.png in Resources */,
 				EDC4BA49171BFDD900B78050 /* Default@2x.png in Resources */,
 				EDC4BA4B171BFDD900B78050 /* Default-568h@2x.png in Resources */,
-				ED3F814B1720302200AD872A /* MainStoryboard.storyboard in Resources */,
 				ED3F81521720303B00AD872A /* iss_app_icon.png in Resources */,
 				ED3F81531720303B00AD872A /* iss_cartoon.png in Resources */,
 				ED98F49117224C9100847646 /* dungeon_logo.png in Resources */,
 				ED98F4981723986B00847646 /* iss_pin.png in Resources */,
-				ED98F49A1723C64100847646 /* iss_dungeon-icon.png in Resources */,
+				ED0DAFAF17CC5E9F000B2B54 /* iss_dungeon-icon.png in Resources */,
+				ED54154C17E83AB500FCDA45 /* chevron-left.png in Resources */,
+				ED54154D17E83AB500FCDA45 /* Dungeon_Logo_Square.jpg in Resources */,
+				ED54157217E8445B00FCDA45 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,13 +324,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED3F81451720302200AD872A /* AppDelegate.m in Sources */,
-				ED3F81461720302200AD872A /* issFacts.m in Sources */,
-				ED3F81471720302200AD872A /* issAnnotationView.m in Sources */,
-				ED3F81481720302200AD872A /* MapViewController.m in Sources */,
-				ED3F81491720302200AD872A /* MyAnnotation.m in Sources */,
-				ED3F814A1720302200AD872A /* main.m in Sources */,
-				ED3F814C1720302200AD872A /* ViewController.m in Sources */,
+				ED54156917E8445B00FCDA45 /* AboutPageViewController.m in Sources */,
+				ED54156A17E8445B00FCDA45 /* AppDelegate.m in Sources */,
+				ED54156B17E8445B00FCDA45 /* issFacts.m in Sources */,
+				ED54156C17E8445B00FCDA45 /* issAnnotationView.m in Sources */,
+				ED54156D17E8445B00FCDA45 /* MapViewController.m in Sources */,
+				ED54156E17E8445B00FCDA45 /* MyAnnotation.m in Sources */,
+				ED54156F17E8445B00FCDA45 /* main.m in Sources */,
+				ED54157017E8445B00FCDA45 /* Reachability.m in Sources */,
+				ED54157117E8445B00FCDA45 /* ReachabilityAppDelegate.m in Sources */,
+				ED54157317E8445B00FCDA45 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,10 +410,14 @@
 		EDC4BA55171BFDD900B78050 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Dean Marc Co (5LA3CGA6LP)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpotTheISS/SpotTheISS-Prefix.pch";
 				INFOPLIST_FILE = "SpotTheISS/SpotTheISS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "50A659B1-773B-4990-946F-E24601FD50E4";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -375,10 +425,14 @@
 		EDC4BA56171BFDD900B78050 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Dean Marc Co (5LA3CGA6LP)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpotTheISS/SpotTheISS-Prefix.pch";
 				INFOPLIST_FILE = "SpotTheISS/SpotTheISS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "50A659B1-773B-4990-946F-E24601FD50E4";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

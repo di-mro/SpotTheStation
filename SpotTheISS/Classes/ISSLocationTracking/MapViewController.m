@@ -12,7 +12,9 @@
 #import "issAnnotationView.h"
 #import "issFacts.h"
 
-#import <Social/Social.h>
+#import "AboutPageViewController.h"
+#import "Reachability.h"
+
 
 #define METERS_PER_MILE 1609.344
 #define MINIMUM_ZOOM_ARC 0.014 //approximately 1 miles (1 degree of arc ~= 69 miles)
@@ -27,6 +29,7 @@
 
 @synthesize map;
 @synthesize issNavigationBar;
+@synthesize animationThread;
 @synthesize location;
 
 @synthesize issLocation;
@@ -39,41 +42,22 @@
 
 @synthesize httpResponseCode;
 
+@synthesize onlineFlag;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self)
   {
-    // Custom initialization
   }
   return self;
 }
 
 - (void)viewDidLoad
 {
-  //Initialize MapView
-  map = [[MKMapView alloc] initWithFrame:CGRectMake(0, 44, 320, 416)];
-  map.delegate = self;
-  map.mapType = MKMapTypeStandard;
-  map.zoomEnabled = FALSE;
-  [self.view addSubview:map];
-  NSLog(@"Map initialized");
-  
-  //Display an ISS fact upon opening
-  issFacts *facts = [[issFacts alloc] init];
-  [facts displayFact];
-  
-  [self getISSGeoLocation];
-  [self getCoordinates];
-  [self plotISSCoordinates];
-  
-  NSThread *animationThread = [[NSThread alloc] initWithTarget:self selector:@selector(animate) object:nil];
-  [animationThread start];
-  
-  //[mapView setMapType:MKMapTypeStandard];
-  //[mapView setMapType:MKMapTypeHybrid];
-  //[mapView setMapType:MKMapTypeSatellite];
+  //Load map and annotation
+  [self initISS];
   
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
@@ -86,11 +70,64 @@
 }
 
 
+#pragma mark - Initialize ISS tracking
+-(void) initISS
+{
+  //Initialize MapView
+  map             = [[MKMapView alloc] initWithFrame:CGRectMake(0, 44, 320, 504)]; //0, 44, 320 , 416
+  map.delegate    = self;
+  map.mapType     = MKMapTypeStandard;
+  map.zoomEnabled = FALSE;
+  [self.view addSubview:map];
+  
+  //[mapView setMapType:MKMapTypeStandard];
+  //[mapView setMapType:MKMapTypeHybrid];
+  //[mapView setMapType:MKMapTypeSatellite];
+  
+  NSLog(@"Map initialized");
+  
+  //*
+  //Display an ISS fact upon opening
+  issFacts *facts = [[issFacts alloc] init];
+  [facts displayFact];
+  //*/
+  
+  annotation = [[MyAnnotation alloc] init];
+  
+  [self getISSGeoLocation];
+  [self getCoordinates];
+  [self plotISSCoordinates];
+  
+  animationThread = [[NSThread alloc] initWithTarget:self
+                                                      selector:@selector(animate)
+                                                        object:nil];
+  [animationThread start];  
+}
+
+
+#pragma mark - Check for network availability
+-(BOOL)reachable
+{
+  Reachability *r = [Reachability  reachabilityWithHostName:@"http://api.open-notify.org/iss-now/v1/"];
+  NetworkStatus internetStatus = [r currentReachabilityStatus];
+  
+  if(internetStatus == NotReachable)
+  {
+    return NO;
+  }
+  else
+  {
+    return YES;
+  }
+}
+
+
 #pragma mark - Get coordinates (latitude, longitude) from open-notify.org
 - (void) getCoordinates
 {
   //Conect to open-notify.org to get JSON coordinates
   NSString *URL = @"http://api.open-notify.org/iss-now/v1/";
+  
   NSMutableURLRequest *getRequest = [NSMutableURLRequest
                                      requestWithURL:[NSURL URLWithString:URL]];
   
@@ -100,20 +137,23 @@
   
   NSURLConnection *connection = [[NSURLConnection alloc]
                                  initWithRequest:getRequest
-                                 delegate:self];
+                                        delegate:self];
   [connection start];
   
   NSHTTPURLResponse *urlResponse = [[NSHTTPURLResponse alloc] init];
-  NSError *error = [[NSError alloc] init];
+  NSError *error                 = [[NSError alloc] init];
   
   //GET
   NSData *responseData = [NSURLConnection
                           sendSynchronousRequest:getRequest
-                          returningResponse:&urlResponse
-                          error:&error];
+                               returningResponse:&urlResponse
+                                           error:&error];
   
   if (responseData == nil)
   {
+    onlineFlag = 0;
+    
+    /*
     //Show an alert if connection is not available
     UIAlertView *connectionAlert = [[UIAlertView alloc]
                                     initWithTitle:@"Warning"
@@ -122,6 +162,7 @@
                                     cancelButtonTitle:@"OK"
                                     otherButtonTitles:nil];
     [connectionAlert show];
+     //*/
     
     //Show sample default location if offline - Manila, Philippines
     issLocation.latitude  = 14.5995124;
@@ -134,20 +175,22 @@
      message: "success",
      iss_position:
      {
-     latitude: 8.693589426544582,
-     longitude: 92.54594185722208
+       latitude: 8.693589426544582,
+       longitude: 92.54594185722208
      }
-     */
+     //*/
+    
+    onlineFlag = 1;
     
     //JSON from open-notify.org
     location = [NSJSONSerialization
                 JSONObjectWithData:responseData
-                options:kNilOptions
-                error:&error];
+                           options:kNilOptions
+                             error:&error];
     NSLog(@"opennotify - location JSON Result: %@", location);
     
     //Retrieve latitude and longitude value from JSON
-    NSNumber *latitude = [[location valueForKey:@"iss_position"] valueForKey:@"latitude"];
+    NSNumber *latitude  = [[location valueForKey:@"iss_position"] valueForKey:@"latitude"];
     NSNumber *longitude = [[location valueForKey:@"iss_position"] valueForKey:@"longitude"];
     
     issLocation.latitude  = latitude.doubleValue;
@@ -160,21 +203,31 @@
 -(void) plotISSCoordinates
 {
   //Set latitude and longitude delta for the map
-  span.latitudeDelta = 100.0f; //0.2f
-  span.longitudeDelta = 100.0f; //0.2f
+  span.latitudeDelta  = 80.0f; //0.2f
+  span.longitudeDelta = 80.0f; //0.2f
   
   region = MKCoordinateRegionMake(issLocation, span);
   [map setRegion:region animated:YES];
+  //[map setCenterCoordinate:issLocation animated:YES];
   //[map setNeedsDisplay];
-  
+    
   //Annotate coordinate location in map
   annotation = [[MyAnnotation alloc] initWithCoordinate:issLocation];
+  //[map removeAnnotation:annotation];
+  //[annotation setCoordinate:issLocation];
   
   //Get geographical location of ISS
   NSLog(@"plotISSCoordinates - geoLocation: %@", geoLocation);
-  annotation.title = @"ISS";
+  annotation.title    = @"International Space Station";
   annotation.subtitle = geoLocation;
+  
+  //[map removeAnnotation:annotation];
   [map addAnnotation:annotation];
+  
+  //[[map viewForAnnotation:annotation] setSelected:YES animated:YES];
+  
+  //[map reloadInputViews];
+  [map setNeedsDisplay];
 }
 
 
@@ -182,7 +235,7 @@
 -(NSString *) getISSGeoLocation
 {
   CLGeocoder *geocoder = [[CLGeocoder alloc]init];
-  CLLocation *loc = [[CLLocation alloc] initWithLatitude:issLocation.latitude longitude:issLocation.longitude];
+  CLLocation *loc      = [[CLLocation alloc] initWithLatitude:issLocation.latitude longitude:issLocation.longitude];
   
   geoLocation = [[NSString alloc] init];
   
@@ -197,7 +250,11 @@
      NSLog(@"addressDictionary %@", placemark.addressDictionary);
      
      //If no geographic place matches a given coordinate
-     if (placemark.addressDictionary == NULL)
+     if ([placemark.addressDictionary isEqual:(NULL)]
+         || [placemark.addressDictionary isEqual:[NSNull null]]
+         || [locatedAt isEqual:NULL]
+         || [locatedAt isEqual:[NSNull null]]
+         || ([placemark.addressDictionary count] < 1))
      {
        tempGeoLocation = [[NSString alloc] initWithFormat:@"Hi there! I am currently over Earth"];
        locatedAt = @"Earth";
@@ -246,7 +303,6 @@
          tempGeoLocation = [[NSString alloc] initWithFormat:@"Hi there! I am currently over the %@", locatedAt];
        }
        */
-       
        tempGeoLocation = [[NSString alloc] initWithFormat:@"Hi there! I am currently over %@", locatedAt];
      }
      
@@ -268,6 +324,19 @@
     [self getISSGeoLocation];
     [self getCoordinates];
     [self plotISSCoordinates];
+
+    /*
+    if(onlineFlag == 1)
+    {
+      [self getISSGeoLocation];
+      [self getCoordinates];
+      [self plotISSCoordinates];
+    }
+    else if(onlineFlag == 0)
+    {
+      break;
+    }
+     //*/
   }
 }
 
@@ -280,7 +349,7 @@
   
   if ([theAnnotation isKindOfClass:[MyAnnotation class]])
   {
-    NSString *annotationIdentifier = @"issAnnotationIdentifier";
+    NSString *annotationIdentifier    = @"issAnnotationIdentifier";
     issAnnotationView *annotationView = (issAnnotationView *)[map dequeueReusableAnnotationViewWithIdentifier:annotationIdentifier];
     
     if(annotationView)
@@ -291,18 +360,22 @@
     {
       annotationView = [[issAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:annotationIdentifier];
 
+      //Set annotation image to ISS image
+      annotationView.image = [UIImage imageNamed:@"iss_pin.png"];
+      
+      /*
       if((issLocation.latitude == 14.5995124) && (issLocation.longitude = 120.9842195))
       {
         annotationView.image = [UIImage imageNamed:@"dungeon_logo.png"];
-        annotation.title = @"We Love The ISS";
-        annotation.subtitle = @"It looks like two Dungeon logos from afar :)";
+        annotation.title     = @"We Love The ISS";
+        annotation.subtitle  = @"It looks like two Dungeon logos from afar :)";
       }
       else
       {
         //Set annotation image to ISS image
         annotationView.image = [UIImage imageNamed:@"iss_pin.png"];
-        
       }
+       //*/
     }
     return annotationView;
   }
@@ -329,14 +402,19 @@
       region.span.longitudeDelta != newRegion.span.longitudeDelta)
   {
     //Set map region to newRegion
-    region = MKCoordinateRegionMake(issLocation, span);
     [map setRegion:newRegion animated:YES];
+    
+    //region = MKCoordinateRegionMake(issLocation, span);
+    //[map setCenterCoordinate:issLocation animated:YES];
+    //[map setNeedsDisplay];
     
     //Annotate coordinate location in map
     annotation = [[MyAnnotation alloc] initWithCoordinate:issLocation];
+    //[map removeAnnotation:annotation];
+    //[annotation setCoordinate:issLocation];
     
     //Get geographical location of ISS
-    annotation.title = @"ISS";
+    annotation.title = @"International Space Station";
     NSLog(@"regionDidChangeAnimated - geoLocation: %@", geoLocation);
     annotation.subtitle = geoLocation;
     
@@ -354,16 +432,19 @@
   if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
   {
     SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-    NSString *tweetMessage = [[NSString alloc] initWithFormat:@"The ISS is currently over the %@. \nI'm tweeting using Spot the Station app :)", locatedAt];
+    
+    NSString *tweetMessage = [[NSString alloc] initWithFormat:
+                              @"The ISS is currently over the %@. \nI'm tweeting using Spot the Station app :)"
+                              , locatedAt];
     [tweetSheet setInitialText:tweetMessage];
     [self presentViewController:tweetSheet animated:YES completion:nil];
   }
   else
   {
     UIAlertView *alertView = [[UIAlertView alloc]
-                              initWithTitle:@"Sorry"
-                              message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup"
-                              delegate:self
+                                  initWithTitle:@"Sorry"
+                                        message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup"
+                                       delegate:self
                               cancelButtonTitle:@"OK"
                               otherButtonTitles:nil];
     [alertView show];
@@ -374,24 +455,50 @@
 #pragma mark - [About] button implementation
 - (IBAction)aboutButton:(id)sender
 {
+  //*
   //Listing of sources for the facts
   NSString *source1 = @"http://www.nasa.gov/mission_pages/station/main/onthestation/facts_and_figures.html";
   NSString *source2 = @"http://www.bbc.co.uk/science/space/solarsystem/space_missions/international_space_station";
   NSString *source3 = @"http://blogs.scientificamerican.com/observations/2010/11/03/10-facts-about-the-international-space-station-and-life-in-orbit/";
   NSString *source4 = @"http://www.boeing.com/boeing/defense-space/space/spacestation/overview/facts.page";
   NSString *source5 = @"http://www.pbs.org/spacestation/station/issfactsheet.htm";
+  NSString *source6 = @"http://science.nationalgeographic.com/science/space/space-exploration/international-space-station-article/";
   
   
-  NSString *aboutString = [[NSString alloc] initWithFormat:@"This app is part of the NASA International Space Apps Challenge 2013. \n\nPowered by the Dungeon Innovations team. \n\n\nFact Sources: %@\n\n %@\n\n %@\n\n %@\n\n %@\n\n", source1, source2, source3, source4, source5 ];
+  NSString *aboutString = [[NSString alloc] initWithFormat:
+                           @"Fact Sources: "
+                           @"%@\n\n "
+                           @"%@\n\n "
+                           @"%@\n\n "
+                           @"%@\n\n "
+                           @"%@\n\n "
+                           @"%@\n\n "
+                           @"This app is part of the NASA International Space Apps Challenge 2013."
+                           @"\n\nPowered by the Dungeon Innovations team. \n"
+                           @"www.dungeoninnovations.com\n\n"
+                           , source1
+                           , source2
+                           , source3
+                           , source4
+                           , source5
+                           , source6];
   
   
   UIAlertView *aboutAlertView = [[UIAlertView alloc]
-                                 initWithTitle:@"About"
-                                 message:aboutString
-                                 delegate:nil
+                                     initWithTitle:@"About"
+                                           message:aboutString
+                                          delegate:nil
                                  cancelButtonTitle:@"OK"
                                  otherButtonTitles:nil];
   [aboutAlertView show];
+   //*/
+  
+  /*
+   AboutPageViewController *controller
+   = (AboutPageViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"AboutPage"];
+   
+   [self.navigationController pushViewController:controller animated:NO];
+   //*/
 }
 
 
@@ -405,9 +512,27 @@
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
   NSHTTPURLResponse *httpResponse;
-  httpResponse = (NSHTTPURLResponse *)response;
+  httpResponse     = (NSHTTPURLResponse *)response;
   httpResponseCode = [httpResponse statusCode];
   NSLog(@"httpResponse status code: %d", httpResponseCode);
+  
+  if(httpResponseCode == 200)
+  {
+    NSLog(@"Data retrieved.");
+  }
+  else
+  {
+    //Show an alert if connection is not available
+    UIAlertView *connectionAlert = [[UIAlertView alloc]
+                                    initWithTitle:@"Warning"
+                                    message:@"No network connection detected."
+                                    delegate:nil
+                                    cancelButtonTitle:@"OK"
+                                    otherButtonTitles:nil];
+    [connectionAlert show];
+    
+    [animationThread cancel];
+  }
 }
 
 
