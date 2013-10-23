@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GoogleMaps/GoogleMaps.h>
+
 #import "MapViewController.h"
 #import "issFacts.h"
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {

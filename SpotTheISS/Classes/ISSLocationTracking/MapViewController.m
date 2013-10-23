@@ -28,7 +28,7 @@
 @implementation MapViewController
 
 @synthesize map;
-@synthesize issNavigationBar;
+//@synthesize issNavigationBar;
 @synthesize animationThread;
 @synthesize location;
 
@@ -56,6 +56,13 @@
 
 - (void)viewDidLoad
 {
+  /*
+  if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
+  {
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+  }
+  //*/
+  
   //Load map and annotation
   [self initISS];
   
@@ -74,10 +81,14 @@
 -(void) initISS
 {
   //Initialize MapView
-  map             = [[MKMapView alloc] initWithFrame:CGRectMake(0, 44, 320, 504)]; //0, 44, 320 , 416
+  //map             = [[MKMapView alloc] initWithFrame:CGRectMake(0, 44, 320, 504)]; //0, 44, 320 , 416
+  /*
+  map             = [[MKMapView alloc] init];
   map.delegate    = self;
   map.mapType     = MKMapTypeStandard;
   map.zoomEnabled = FALSE;
+  //*/
+  
   [self.view addSubview:map];
   
   //[mapView setMapType:MKMapTypeStandard];
@@ -99,8 +110,8 @@
   [self plotISSCoordinates];
   
   animationThread = [[NSThread alloc] initWithTarget:self
-                                                      selector:@selector(animate)
-                                                        object:nil];
+                                            selector:@selector(animate)
+                                              object:nil];
   [animationThread start];  
 }
 
@@ -208,26 +219,21 @@
   
   region = MKCoordinateRegionMake(issLocation, span);
   [map setRegion:region animated:YES];
-  //[map setCenterCoordinate:issLocation animated:YES];
-  //[map setNeedsDisplay];
-    
+  
   //Annotate coordinate location in map
   annotation = [[MyAnnotation alloc] initWithCoordinate:issLocation];
-  //[map removeAnnotation:annotation];
-  //[annotation setCoordinate:issLocation];
   
   //Get geographical location of ISS
   NSLog(@"plotISSCoordinates - geoLocation: %@", geoLocation);
   annotation.title    = @"International Space Station";
   annotation.subtitle = geoLocation;
   
-  //[map removeAnnotation:annotation];
   [map addAnnotation:annotation];
   
   //[[map viewForAnnotation:annotation] setSelected:YES animated:YES];
   
   //[map reloadInputViews];
-  [map setNeedsDisplay];
+  //[map setNeedsDisplay];
 }
 
 
@@ -303,6 +309,7 @@
          tempGeoLocation = [[NSString alloc] initWithFormat:@"Hi there! I am currently over the %@", locatedAt];
        }
        */
+       
        tempGeoLocation = [[NSString alloc] initWithFormat:@"Hi there! I am currently over %@", locatedAt];
      }
      
@@ -311,6 +318,7 @@
      NSLog(@"getISSGeoLocation - geoLocation: %@", geoLocation);
    }
   ];
+  
   return geoLocation;
 }
 
@@ -345,7 +353,7 @@
 - (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)theAnnotation
 {
   NSLog(@"mapView - viewForAnnotation");
-  [map removeAnnotation:theAnnotation];
+  //[map removeAnnotation:theAnnotation];
   
   if ([theAnnotation isKindOfClass:[MyAnnotation class]])
   {
@@ -358,7 +366,8 @@
     }
     else
     {
-      annotationView = [[issAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:annotationIdentifier];
+      annotationView = [[issAnnotationView alloc] initWithAnnotation:annotation
+                                                     reuseIdentifier:annotationIdentifier];
 
       //Set annotation image to ISS image
       annotationView.image = [UIImage imageNamed:@"iss_pin.png"];
@@ -379,8 +388,10 @@
     }
     return annotationView;
   }
-
-  return nil;
+  else
+  {
+    return nil;
+  }
 }
 
 
@@ -410,8 +421,6 @@
     
     //Annotate coordinate location in map
     annotation = [[MyAnnotation alloc] initWithCoordinate:issLocation];
-    //[map removeAnnotation:annotation];
-    //[annotation setCoordinate:issLocation];
     
     //Get geographical location of ISS
     annotation.title = @"International Space Station";
@@ -443,7 +452,7 @@
   {
     UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"Sorry"
-                                        message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account setup"
+                                        message:@"You can't send a tweet right now, make sure your device has an internet connection and you have at least one Twitter account configured in Settings."
                                        delegate:self
                               cancelButtonTitle:@"OK"
                               otherButtonTitles:nil];
@@ -524,9 +533,9 @@
   {
     //Show an alert if connection is not available
     UIAlertView *connectionAlert = [[UIAlertView alloc]
-                                    initWithTitle:@"Warning"
-                                    message:@"No network connection detected."
-                                    delegate:nil
+                                        initWithTitle:@"Warning"
+                                              message:@"No network connection detected."
+                                             delegate:nil
                                     cancelButtonTitle:@"OK"
                                     otherButtonTitles:nil];
     [connectionAlert show];

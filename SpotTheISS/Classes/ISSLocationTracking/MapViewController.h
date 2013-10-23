@@ -13,10 +13,10 @@
 #import "MyAnnotation.h"
 
 
-@interface MapViewController : UIViewController <MKMapViewDelegate>
+@interface MapViewController : UIViewController<MKMapViewDelegate, MKAnnotation>
+
 
 @property (strong, nonatomic) IBOutlet MKMapView *map;
-@property (strong, nonatomic) IBOutlet UINavigationBar *issNavigationBar;
 
 @property (strong, nonatomic) NSThread *animationThread;
 
@@ -31,6 +31,7 @@
 @property (strong, nonatomic) NSString *geoLocation;
 @property (strong, nonatomic) NSString *locatedAt;
 
+
 @property int httpResponseCode;
 
 @property int onlineFlag;
@@ -39,10 +40,12 @@
 - (IBAction)aboutButton:(id)sender;
 
 
+
 //Initialize plotting and tracking of ISS
 -(void) initISS;
 
 - (void) getCoordinates;
+
 
 
 

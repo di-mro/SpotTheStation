@@ -12,35 +12,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  /*
-  //Change font and appearance of UINavigationBar title
-  if ([[UINavigationBar class] respondsToSelector:@selector(appearance)])
-  {
-    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                          [UIColor whiteColor], UITextAttributeTextColor,
-                                                          [UIColor blackColor], UITextAttributeTextShadowColor,
-                                                          [NSValue valueWithUIOffset:UIOffsetMake(1, 0)], UITextAttributeTextShadowOffset,
-                                                          [UIFont fontWithName:@"Chalkduster" size:20.0], UITextAttributeFont, nil]];
-  }
-   //*/
+  //Google Maps set API Key
+  [GMSServices provideAPIKey:@"AIzaSyBlnO2nX2DozZPl4XueRS9gfyeTBbrct2I"];
   
-  [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                        [UIColor whiteColor], UITextAttributeTextColor,
-                                                        [UIColor blackColor], UITextAttributeTextShadowColor,
-                                                        [NSValue valueWithUIOffset:UIOffsetMake(1, 0)], UITextAttributeTextShadowOffset,
-                                                        [UIFont fontWithName:@"Chalkduster" size:20.0], UITextAttributeFont, nil]];
+  [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                         [UIColor whiteColor], NSForegroundColorAttributeName,
+                                                         [UIFont fontWithName:@"Chalkduster" size:22.0], NSFontAttributeName, nil]];
   
-  //Change font of UIBarButtonItems
-  [[UIBarButtonItem appearance] setTitleTextAttributes:
-   [NSDictionary dictionaryWithObjectsAndKeys:
-    [UIColor whiteColor], UITextAttributeTextColor,
-    [UIColor blackColor], UITextAttributeTextShadowColor,
-    [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset,
-    [UIFont fontWithName:@"American Typewriter" size:13.0], UITextAttributeFont, nil]
-                                              forState:UIControlStateNormal];
+  [[UIBarButtonItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                        [UIColor whiteColor], NSForegroundColorAttributeName,
+                                                        [UIFont fontWithName:@"Futura" size:15.0], NSFontAttributeName, nil]
+                                                        forState:UIControlStateNormal];
+  //American Typewriter
   
-  
-  issMapInit = [MapViewController alloc];
+  /* MapKit implementation
+    issMapInit = [MapViewController alloc];
+    [issMapInit initISS];
+  //*/
   
   // Override point for customization after application launch.
   return YES;

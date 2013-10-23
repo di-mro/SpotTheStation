@@ -158,11 +158,11 @@
   UIAlertView *factAlert = [[UIAlertView alloc]
                                 initWithTitle:@"ISS Fact"
                                       message:randomFact
-                                     delegate:self
+                                     delegate:nil
                             cancelButtonTitle:@"OK"
                             otherButtonTitles:nil];
   
-  UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(230, 10, 60, 40)]; //(220, 10, 40, 40)
+  UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(200, 10, 60, 40)]; //(220, 10, 40, 40)
   
   NSString *path = [[NSString alloc] initWithString:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"iss_cartoon.png"]];
   

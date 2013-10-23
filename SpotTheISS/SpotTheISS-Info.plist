@@ -14,6 +14,9 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
+				<string>di_whereiss_logo_58</string>
+				<string>di_whereiss_logo_80</string>
+				<string>di_whereiss_logo_120</string>
 				<string>iss_dungeon-icon.png</string>
 			</array>
 		</dict>
@@ -40,6 +43,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<false/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleBlackOpaque</string>
 	<key>UISupportedInterfaceOrientations</key>
