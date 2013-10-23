@@ -17,12 +17,11 @@
 				<string>di_whereiss_logo_58</string>
 				<string>di_whereiss_logo_80</string>
 				<string>di_whereiss_logo_120</string>
-				<string>iss_dungeon-icon.png</string>
 			</array>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.dungeoninnovations.whereiss</string>
+	<string>com.dungeoninnovations.whereiss-201310-01</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

@@ -104,7 +104,7 @@
   
   if(onlineFlag == 0)
   {
-    marker.snippet = @"No connection detected. Please try again later.";
+    marker.snippet = @"The ISS seems to be lost in space at the moment. Please try again later.";
   }
   else
   {

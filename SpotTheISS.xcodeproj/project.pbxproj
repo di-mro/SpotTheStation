@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ED0DAFAF17CC5E9F000B2B54 /* iss_dungeon-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ED0DAFAE17CC5E9F000B2B54 /* iss_dungeon-icon.png */; };
-		ED3F81521720303B00AD872A /* iss_app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = ED3F814F1720303B00AD872A /* iss_app_icon.png */; };
-		ED3F81531720303B00AD872A /* iss_cartoon.png in Resources */ = {isa = PBXBuildFile; fileRef = ED3F81501720303B00AD872A /* iss_cartoon.png */; };
-		ED54154C17E83AB500FCDA45 /* chevron-left.png in Resources */ = {isa = PBXBuildFile; fileRef = ED54154A17E83AB500FCDA45 /* chevron-left.png */; };
-		ED54154D17E83AB500FCDA45 /* Dungeon_Logo_Square.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ED54154B17E83AB500FCDA45 /* Dungeon_Logo_Square.jpg */; };
 		ED54156917E8445B00FCDA45 /* AboutPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54155117E8445B00FCDA45 /* AboutPageViewController.m */; };
 		ED54156A17E8445B00FCDA45 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54155417E8445B00FCDA45 /* AppDelegate.m */; };
 		ED54156B17E8445B00FCDA45 /* issFacts.m in Sources */ = {isa = PBXBuildFile; fileRef = ED54155717E8445B00FCDA45 /* issFacts.m */; };
@@ -26,8 +21,28 @@
 		ED54157517E8463B00FCDA45 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED54157417E8463B00FCDA45 /* SystemConfiguration.framework */; };
 		ED7B7BA0171C0A35000A382B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7B7B9F171C0A35000A382B /* MapKit.framework */; };
 		ED7B7BBF171E92E6000A382B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7B7BBE171E92E6000A382B /* Social.framework */; };
-		ED98F49117224C9100847646 /* dungeon_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = ED98F49017224C9100847646 /* dungeon_logo.png */; };
-		ED98F4981723986B00847646 /* iss_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = ED98F4971723986B00847646 /* iss_pin.png */; };
+		ED7FEEC5180F9B8F00237DA3 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7FEEC4180F9B8F00237DA3 /* GoogleMaps.framework */; };
+		ED7FEEC7180F9BFF00237DA3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7FEEC6180F9BFF00237DA3 /* AVFoundation.framework */; };
+		ED7FEEC9180F9C0B00237DA3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED7FEEC8180F9C0B00237DA3 /* CoreData.framework */; };
+		ED864512180F9C7F00ED78B9 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED864511180F9C7F00ED78B9 /* CoreText.framework */; };
+		ED864514180F9C8900ED78B9 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED864513180F9C8900ED78B9 /* GLKit.framework */; };
+		ED864516180F9C8F00ED78B9 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED864515180F9C8F00ED78B9 /* ImageIO.framework */; };
+		ED864518180F9CA000ED78B9 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED864517180F9CA000ED78B9 /* libc++.dylib */; };
+		ED86451A180F9CB900ED78B9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED864519180F9CB900ED78B9 /* libz.dylib */; };
+		ED86451C180F9CC600ED78B9 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED86451B180F9CC600ED78B9 /* OpenGLES.framework */; };
+		ED86451E180F9CCC00ED78B9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED86451D180F9CCC00ED78B9 /* QuartzCore.framework */; };
+		ED864521180F9E9F00ED78B9 /* GoogleMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED864520180F9E9F00ED78B9 /* GoogleMapViewController.m */; };
+		ED864524180F9FFE00ED78B9 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ED864523180F9FFE00ED78B9 /* GoogleMaps.bundle */; };
+		EDB476B01816817D001BB110 /* chevron-left.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB476A61816817D001BB110 /* chevron-left.png */; };
+		EDB476B11816817D001BB110 /* di_whereiss_logo_120.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB476A71816817D001BB110 /* di_whereiss_logo_120.png */; };
+		EDB476B21816817D001BB110 /* di_whereiss_logo_58.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB476A81816817D001BB110 /* di_whereiss_logo_58.png */; };
+		EDB476B31816817D001BB110 /* di_whereiss_logo_80.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB476A91816817D001BB110 /* di_whereiss_logo_80.png */; };
+		EDB476B41816817D001BB110 /* dungeon_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB476AA1816817D001BB110 /* dungeon_logo.png */; };
+		EDB476B51816817D001BB110 /* Dungeon_Logo_Square.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EDB476AB1816817D001BB110 /* Dungeon_Logo_Square.jpg */; };
+		EDB476B61816817D001BB110 /* iss.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB476AC1816817D001BB110 /* iss.png */; };
+		EDB476B71816817D001BB110 /* iss_app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB476AD1816817D001BB110 /* iss_app_icon.png */; };
+		EDB476B81816817D001BB110 /* iss_cartoon.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB476AE1816817D001BB110 /* iss_cartoon.png */; };
+		EDB476B91816817D001BB110 /* iss_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = EDB476AF1816817D001BB110 /* iss_pin.png */; };
 		EDC4BA35171BFDD900B78050 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC4BA34171BFDD900B78050 /* UIKit.framework */; };
 		EDC4BA37171BFDD900B78050 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC4BA36171BFDD900B78050 /* Foundation.framework */; };
 		EDC4BA39171BFDD900B78050 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC4BA38171BFDD900B78050 /* CoreGraphics.framework */; };
@@ -39,11 +54,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		ED0DAFAE17CC5E9F000B2B54 /* iss_dungeon-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iss_dungeon-icon.png"; path = "../../../iss_dungeon-icon.png"; sourceTree = "<group>"; };
-		ED3F814F1720303B00AD872A /* iss_app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iss_app_icon.png; sourceTree = "<group>"; };
-		ED3F81501720303B00AD872A /* iss_cartoon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iss_cartoon.png; sourceTree = "<group>"; };
-		ED54154A17E83AB500FCDA45 /* chevron-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chevron-left.png"; sourceTree = "<group>"; };
-		ED54154B17E83AB500FCDA45 /* Dungeon_Logo_Square.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Dungeon_Logo_Square.jpg; sourceTree = "<group>"; };
 		ED54155017E8445B00FCDA45 /* AboutPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutPageViewController.h; sourceTree = "<group>"; };
 		ED54155117E8445B00FCDA45 /* AboutPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutPageViewController.m; sourceTree = "<group>"; };
 		ED54155317E8445B00FCDA45 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -67,8 +77,29 @@
 		ED54157417E8463B00FCDA45 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		ED7B7B9F171C0A35000A382B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		ED7B7BBE171E92E6000A382B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		ED98F49017224C9100847646 /* dungeon_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dungeon_logo.png; sourceTree = "<group>"; };
-		ED98F4971723986B00847646 /* iss_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iss_pin.png; sourceTree = "<group>"; };
+		ED7FEEC4180F9B8F00237DA3 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = "SpotTheISS/GoogleMaps-iOS-1.5.0/GoogleMaps.framework"; sourceTree = "<group>"; };
+		ED7FEEC6180F9BFF00237DA3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		ED7FEEC8180F9C0B00237DA3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		ED864511180F9C7F00ED78B9 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		ED864513180F9C8900ED78B9 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		ED864515180F9C8F00ED78B9 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		ED864517180F9CA000ED78B9 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		ED864519180F9CB900ED78B9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		ED86451B180F9CC600ED78B9 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		ED86451D180F9CCC00ED78B9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		ED86451F180F9E9F00ED78B9 /* GoogleMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleMapViewController.h; sourceTree = "<group>"; };
+		ED864520180F9E9F00ED78B9 /* GoogleMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleMapViewController.m; sourceTree = "<group>"; };
+		ED864523180F9FFE00ED78B9 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = "SpotTheISS/GoogleMaps-iOS-1.5.0/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle"; sourceTree = "<group>"; };
+		EDB476A61816817D001BB110 /* chevron-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chevron-left.png"; sourceTree = "<group>"; };
+		EDB476A71816817D001BB110 /* di_whereiss_logo_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = di_whereiss_logo_120.png; sourceTree = "<group>"; };
+		EDB476A81816817D001BB110 /* di_whereiss_logo_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = di_whereiss_logo_58.png; sourceTree = "<group>"; };
+		EDB476A91816817D001BB110 /* di_whereiss_logo_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = di_whereiss_logo_80.png; sourceTree = "<group>"; };
+		EDB476AA1816817D001BB110 /* dungeon_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dungeon_logo.png; sourceTree = "<group>"; };
+		EDB476AB1816817D001BB110 /* Dungeon_Logo_Square.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Dungeon_Logo_Square.jpg; sourceTree = "<group>"; };
+		EDB476AC1816817D001BB110 /* iss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iss.png; sourceTree = "<group>"; };
+		EDB476AD1816817D001BB110 /* iss_app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iss_app_icon.png; sourceTree = "<group>"; };
+		EDB476AE1816817D001BB110 /* iss_cartoon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iss_cartoon.png; sourceTree = "<group>"; };
+		EDB476AF1816817D001BB110 /* iss_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iss_pin.png; sourceTree = "<group>"; };
 		EDC4BA31171BFDD900B78050 /* SpotTheISS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotTheISS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDC4BA34171BFDD900B78050 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EDC4BA36171BFDD900B78050 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -87,12 +118,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED86451E180F9CCC00ED78B9 /* QuartzCore.framework in Frameworks */,
+				ED86451C180F9CC600ED78B9 /* OpenGLES.framework in Frameworks */,
+				ED86451A180F9CB900ED78B9 /* libz.dylib in Frameworks */,
+				ED864518180F9CA000ED78B9 /* libc++.dylib in Frameworks */,
+				ED864516180F9C8F00ED78B9 /* ImageIO.framework in Frameworks */,
+				ED864514180F9C8900ED78B9 /* GLKit.framework in Frameworks */,
+				ED864512180F9C7F00ED78B9 /* CoreText.framework in Frameworks */,
+				ED7FEEC9180F9C0B00237DA3 /* CoreData.framework in Frameworks */,
+				ED7FEEC7180F9BFF00237DA3 /* AVFoundation.framework in Frameworks */,
 				ED54157517E8463B00FCDA45 /* SystemConfiguration.framework in Frameworks */,
 				EDFE53F11721370900F8E8FD /* CoreLocation.framework in Frameworks */,
 				ED7B7BBF171E92E6000A382B /* Social.framework in Frameworks */,
 				ED7B7BA0171C0A35000A382B /* MapKit.framework in Frameworks */,
 				EDC4BA35171BFDD900B78050 /* UIKit.framework in Frameworks */,
 				EDC4BA37171BFDD900B78050 /* Foundation.framework in Frameworks */,
+				ED7FEEC5180F9B8F00237DA3 /* GoogleMaps.framework in Frameworks */,
 				EDC4BA39171BFDD900B78050 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,23 +144,9 @@
 		ED3F814D1720303B00AD872A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				ED3F814E1720303B00AD872A /* Images */,
+				EDB476A51816817D001BB110 /* Images */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		ED3F814E1720303B00AD872A /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				ED54154A17E83AB500FCDA45 /* chevron-left.png */,
-				ED54154B17E83AB500FCDA45 /* Dungeon_Logo_Square.jpg */,
-				ED98F49017224C9100847646 /* dungeon_logo.png */,
-				ED3F814F1720303B00AD872A /* iss_app_icon.png */,
-				ED3F81501720303B00AD872A /* iss_cartoon.png */,
-				ED0DAFAE17CC5E9F000B2B54 /* iss_dungeon-icon.png */,
-				ED98F4971723986B00847646 /* iss_pin.png */,
-			);
-			path = Images;
 			sourceTree = "<group>";
 		};
 		ED54154E17E8445B00FCDA45 /* Classes */ = {
@@ -174,6 +201,8 @@
 				ED54155C17E8445B00FCDA45 /* MapViewController.m */,
 				ED54155D17E8445B00FCDA45 /* MyAnnotation.h */,
 				ED54155E17E8445B00FCDA45 /* MyAnnotation.m */,
+				ED86451F180F9E9F00ED78B9 /* GoogleMapViewController.h */,
+				ED864520180F9E9F00ED78B9 /* GoogleMapViewController.m */,
 			);
 			path = ISSLocationTracking;
 			sourceTree = "<group>";
@@ -197,6 +226,23 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		EDB476A51816817D001BB110 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				EDB476A61816817D001BB110 /* chevron-left.png */,
+				EDB476A71816817D001BB110 /* di_whereiss_logo_120.png */,
+				EDB476A81816817D001BB110 /* di_whereiss_logo_58.png */,
+				EDB476A91816817D001BB110 /* di_whereiss_logo_80.png */,
+				EDB476AA1816817D001BB110 /* dungeon_logo.png */,
+				EDB476AB1816817D001BB110 /* Dungeon_Logo_Square.jpg */,
+				EDB476AC1816817D001BB110 /* iss.png */,
+				EDB476AD1816817D001BB110 /* iss_app_icon.png */,
+				EDB476AE1816817D001BB110 /* iss_cartoon.png */,
+				EDB476AF1816817D001BB110 /* iss_pin.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		EDC4BA28171BFDD800B78050 = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +263,17 @@
 		EDC4BA33171BFDD900B78050 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED864523180F9FFE00ED78B9 /* GoogleMaps.bundle */,
+				ED86451D180F9CCC00ED78B9 /* QuartzCore.framework */,
+				ED86451B180F9CC600ED78B9 /* OpenGLES.framework */,
+				ED864519180F9CB900ED78B9 /* libz.dylib */,
+				ED864517180F9CA000ED78B9 /* libc++.dylib */,
+				ED864515180F9C8F00ED78B9 /* ImageIO.framework */,
+				ED864513180F9C8900ED78B9 /* GLKit.framework */,
+				ED864511180F9C7F00ED78B9 /* CoreText.framework */,
+				ED7FEEC8180F9C0B00237DA3 /* CoreData.framework */,
+				ED7FEEC6180F9BFF00237DA3 /* AVFoundation.framework */,
+				ED7FEEC4180F9B8F00237DA3 /* GoogleMaps.framework */,
 				ED54157417E8463B00FCDA45 /* SystemConfiguration.framework */,
 				EDFE53F01721370900F8E8FD /* CoreLocation.framework */,
 				ED7B7BBE171E92E6000A382B /* Social.framework */,
@@ -279,6 +336,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Dungeon Innovations";
+				TargetAttributes = {
+					EDC4BA30171BFDD800B78050 = {
+						DevelopmentTeam = 5LA3CGA6LP;
+					};
+				};
 			};
 			buildConfigurationList = EDC4BA2C171BFDD800B78050 /* Build configuration list for PBXProject "SpotTheISS" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -305,15 +367,19 @@
 				EDC4BA3F171BFDD900B78050 /* InfoPlist.strings in Resources */,
 				EDC4BA47171BFDD900B78050 /* Default.png in Resources */,
 				EDC4BA49171BFDD900B78050 /* Default@2x.png in Resources */,
+				EDB476B91816817D001BB110 /* iss_pin.png in Resources */,
+				EDB476B81816817D001BB110 /* iss_cartoon.png in Resources */,
+				EDB476B61816817D001BB110 /* iss.png in Resources */,
+				EDB476B21816817D001BB110 /* di_whereiss_logo_58.png in Resources */,
+				EDB476B41816817D001BB110 /* dungeon_logo.png in Resources */,
+				EDB476B11816817D001BB110 /* di_whereiss_logo_120.png in Resources */,
+				EDB476B51816817D001BB110 /* Dungeon_Logo_Square.jpg in Resources */,
+				EDB476B01816817D001BB110 /* chevron-left.png in Resources */,
 				EDC4BA4B171BFDD900B78050 /* Default-568h@2x.png in Resources */,
-				ED3F81521720303B00AD872A /* iss_app_icon.png in Resources */,
-				ED3F81531720303B00AD872A /* iss_cartoon.png in Resources */,
-				ED98F49117224C9100847646 /* dungeon_logo.png in Resources */,
-				ED98F4981723986B00847646 /* iss_pin.png in Resources */,
-				ED0DAFAF17CC5E9F000B2B54 /* iss_dungeon-icon.png in Resources */,
-				ED54154C17E83AB500FCDA45 /* chevron-left.png in Resources */,
-				ED54154D17E83AB500FCDA45 /* Dungeon_Logo_Square.jpg in Resources */,
 				ED54157217E8445B00FCDA45 /* MainStoryboard.storyboard in Resources */,
+				ED864524180F9FFE00ED78B9 /* GoogleMaps.bundle in Resources */,
+				EDB476B71816817D001BB110 /* iss_app_icon.png in Resources */,
+				EDB476B31816817D001BB110 /* di_whereiss_logo_80.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED864521180F9E9F00ED78B9 /* GoogleMapViewController.m in Sources */,
 				ED54156917E8445B00FCDA45 /* AboutPageViewController.m in Sources */,
 				ED54156A17E8445B00FCDA45 /* AppDelegate.m in Sources */,
 				ED54156B17E8445B00FCDA45 /* issFacts.m in Sources */,
@@ -378,6 +445,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -402,6 +470,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -410,13 +479,18 @@
 		EDC4BA55171BFDD900B78050 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Dean Marc Co (5LA3CGA6LP)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/maryrose/Projects/SpotTheISS/SpotTheISS/GoogleMaps-iOS-1.5.0",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpotTheISS/SpotTheISS-Prefix.pch";
 				INFOPLIST_FILE = "SpotTheISS/SpotTheISS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "50A659B1-773B-4990-946F-E24601FD50E4";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -425,13 +499,18 @@
 		EDC4BA56171BFDD900B78050 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Dean Marc Co (5LA3CGA6LP)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/maryrose/Projects/SpotTheISS/SpotTheISS/GoogleMaps-iOS-1.5.0",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpotTheISS/SpotTheISS-Prefix.pch";
 				INFOPLIST_FILE = "SpotTheISS/SpotTheISS-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "50A659B1-773B-4990-946F-E24601FD50E4";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

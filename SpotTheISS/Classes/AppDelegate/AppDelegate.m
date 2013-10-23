@@ -13,7 +13,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   //Google Maps set API Key
-  [GMSServices provideAPIKey:@"AIzaSyBlnO2nX2DozZPl4XueRS9gfyeTBbrct2I"];
+  [GMSServices provideAPIKey:@"AIzaSyClUU90G5_e12hM3zj8vPymWeJx6VZ-fZI"];
   
   [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
                                                          [UIColor whiteColor], NSForegroundColorAttributeName,
